@@ -1,0 +1,128 @@
+{
+  "title": "Usługi i ceny w PodOS",
+  "description": "W swojej pracy kieruję się przezroczystośćią i lojalnością cenową.",
+  "headerParagraph1": "Gabinet PodOS to miejsce komfortu, gdzie każdy zabieg jest dostosowywany do potrzeb pacjenta, pozwalając na uzyskanie optymalnych efektów.",
+  "headerParagraph2": "Dla dzieci i pacjentów w podeszłym wieku - udzielany jest stały rabat na wszystkie rodzaje usług.",
+  "items": {
+    "item1": {
+      "title": "Konsultacja",
+      "content": {
+        "price": "100 zł",
+        "treatment": "Diagnoza zmian w obrębie skóry i paznokci. Przedstawienie i omówienie terapii",
+        "duration": "30min"
+      }
+    },
+    "item2": {
+      "title": "Pedicure podologiczny",
+      "content": {
+        "price": "od 200 zł",
+        "treatment": "Opracowanie podeszwy stóp, skrócenie i oczyszczenie paznokci, aplikacja preparatów kosmetycznych",
+        "duration": "do 1h 30min"
+      }
+    },
+    "item3": {
+      "title": "Pedicure podologiczny leczniczy",
+      "content": {
+        "price": "od 250 zł",
+        "treatment": "Opracowanie podeszwy stóp, skrócenie i oczyszczenie paznokci, aplikacja preparatów leczniczych",
+        "duration": "do 2h"
+      }
+    },
+    "item4": {
+      "title": "Pedicure klasyczny z lakierem hybrydowym",
+      "content": {
+        "price": "od 220 zł",
+        "treatment": "Opracowanie podeszwy stóp, skrócenie i oczyszczenie paznokci, naniesienie pokrycia hybrydowego, aplikacja preparatów kosmetycznych",
+        "duration": "do 1h 45min"
+      }
+    },
+    "item5": {
+      "title": "Pedicure SPA (pedicure japoński)",
+      "content": {
+        "price": "od 220 zł",
+        "treatment": "Opracowanie podeszwy stóp, skrócenie i oczyszczenie paznokci, aplikacja preparatów kosmetycznych, wykonanie pedicure metodą mechanicznego wcierania pasty specjalnej leczniczej w płytkę paznokcia i polerowanie pudrem mineralnym",
+        "duration": "do 1h 45min"
+      }
+    },
+    "item6": {
+      "title": "Masaż stóp z elementami refleksologii",
+      "content": {
+        "price": "od 120 zł",
+        "treatment": "",
+        "duration": "30min"
+      }
+    },
+    "item7": {
+      "title": "Kąpiele parafinowe stóp (z masażem)",
+      "content": {
+        "price": "od 200 zł",
+        "treatment": "",
+        "duration": "do 1h 10min"
+      }
+    },
+    "item8": {
+      "title": "Kąpiele parafinowe stóp i dłoni (z masażem)",
+      "content": {
+        "price": "od 250 zł",
+        "treatment": "Opracowanie stóp i dłoni, aplikacja preparatów kosmetycznych, zanurzenie w kąpieli parafinowej, masaż",
+        "duration": "do 2h 30min"
+      }
+    },
+    "item9": {
+      "title": "Grzybica paznokci",
+      "content": {
+        "price": "od 150 zł",
+        "treatment": "Diagnoza podologiczna, opracowanie i leczenie, aplikacja produkty leczniczego",
+        "duration": "do 1h 30min"
+      }
+    },
+    "item10": {
+      "title": "Terapia brodawek wirusowych",
+      "content": {
+        "price": "od 150 zł (1 wizyta) - od 100 zł (2 wizyta)",
+        "treatment": "Opracowanie brodawek, leczenie",
+        "duration": "do 45min"
+      }
+    },
+    "item11": {
+      "title": "Paznokieć wrastający",
+      "content": {
+        "price": "od 150 zł",
+        "treatment": "Opracowanie wrastającej części i leczenie paznokcia",
+        "duration": "do 1h"
+      }
+    },
+    "item12": {
+      "title": "Usunięcie modzela/odcisku",
+      "content": {
+        "price": "od 100 zł",
+        "treatment": "Usunięcie modzela lub odcisku oraz założenie odciązenia",
+        "duration": "do 1h"
+      }
+    },
+    "item13": {
+      "title": "Leczenie pękających pięt",
+      "content": {
+        "price": "od 150 zł",
+        "treatment": "Opracowanie pęknięć, aplikacja preparatów leczniczych, nałożenie bandaża",
+        "duration": "do 1h 30min"
+      }
+    },
+    "item14": {
+      "title": "Instalacja systemu UniBrace",
+      "content": {
+        "price": "od 200 zł",
+        "treatment": "Poprawa kształtu, zapobieganie procesu zapalnego i wrastaniu paznokcia w skórę",
+        "duration": "do 45min (1 palec)"
+      }
+    },
+    "item15": {
+      "title": "Klamra tytanowa",
+      "content": {
+        "price": "od 200 zł",
+        "treatment": "Poprawa kształtu, zapobieganie procesu zapalnego i wrastaniu paznokcia w skórę",
+        "duration": "do 45min (1 palec)"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@use '@/styles/abstracts' as *;
+
+.accordion {
+  display: flex;
+  gap: 16px;
+
+  @include tablet-max {
+    flex-direction: column;
+  }
+}
+
+.column {
+  width: calc(50% - 8px);
+
+  @include tablet-max {
+    width: 100%;
+  }
+}

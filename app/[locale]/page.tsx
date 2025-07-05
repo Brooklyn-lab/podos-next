@@ -18,7 +18,9 @@ type HomePageProps = {
   }
 }
 
-export default function Page({ params: { locale } }: HomePageProps) {
+export default async function Page({ params }: HomePageProps) {
+  const { locale } = await params
+
   return (
     <main>
       <HomePage locale={locale} />
