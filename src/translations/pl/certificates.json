@@ -3,39 +3,39 @@
   "description": "W moim gabinecie oferuję specjalistyczne i nowoczesne metody leczenia. Stosuję systemy korekcji UniBrace, nici tytanowe, które szybko pomagają w rozwiązaniu problemów wrastających i zdeformowanych paznokci. Prowadzę terapię polegającą na leczeniu brodawek, pęknięć na piętach, eliminowaniu modzeli, odcisków.",
   "certificates": [
     {
-      "imageUrl": "/images/services/certificates/certificate-9",
+      "imageUrl": "/images/sections/certificates/certificat-9",
       "imageAlt": "Certyfikat ProPedis 3.3.2025"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-8",
+      "imageUrl": "/images/sections/certificates/certificat-8",
       "imageAlt": "Certyfikat Certesto"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-1",
+      "imageUrl": "/images/sections/certificates/certificat-1",
       "imageAlt": "Certyfikat ForFeet 12.12.2024"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-2",
+      "imageUrl": "/images/sections/certificates/certificat-2",
       "imageAlt": "Certyfikat Spasja 1.12.2024"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-3",
+      "imageUrl": "/images/sections/certificates/certificat-3",
       "imageAlt": "Certyfikat Spasja 29-30.11.2024"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-4",
+      "imageUrl": "/images/sections/certificates/certificat-4",
       "imageAlt": "Certyfikat ForFeet 27-29.11.2024"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-5",
+      "imageUrl": "/images/sections/certificates/certificat-5",
       "imageAlt": "Certyfikat UniBrace 05.11.2024"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-6",
+      "imageUrl": "/images/sections/certificates/certificat-6",
       "imageAlt": "Certyfikat ForFeet 31.10.2024"
     },
     {
-      "imageUrl": "/images/services/certificates/certificate-7",
+      "imageUrl": "/images/sections/certificates/certificat-7",
       "imageAlt": "Certyfikat PodoRoom 04.03.2023"
     }
   ]
