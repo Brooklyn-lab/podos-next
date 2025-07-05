@@ -1,0 +1,99 @@
+@use '@/styles/abstracts' as *;
+
+.container {
+  max-width: 1410px + 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include tablet-max {
+    max-width: 768px;
+  }
+
+  @include mobile {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.contentBackground {
+  max-width: initial;
+  border-radius: 8px;
+  position: relative;
+  padding: 34px 25px;
+  height: 745px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  // Desktop by default
+  background-image: image-set(
+    url('/images/sections/hero/bg-desc.webp') type('image/webp'),
+    url('/images/sections/hero/bg-desc.png') type('image/png')
+  );
+
+  @media (min-resolution: 2dppx) {
+    background-image: image-set(
+      url('/images/sections/hero/bg-desc@2x.webp') type('image/webp'),
+      url('/images/sections/hero/bg-desc.png') type('image/png')
+    );
+  }
+
+  // Tablet
+  @include tablet-max {
+    padding: 34px 24px;
+    background-image: image-set(
+      url('/images/sections/hero/bg-tabl.webp') type('image/webp'),
+      url('/images/sections/hero/bg-tabl.png') type('image/png')
+    );
+
+    @media (min-resolution: 2dppx) {
+      background-image: image-set(
+        url('/images/sections/hero/bg-tabl@2x.webp') type('image/webp'),
+        url('/images/sections/hero/bg-tabl.png') type('image/png')
+      );
+    }
+  }
+
+  // Mobile
+  @include mobile {
+    height: 440px;
+    padding: 24px 16px;
+    background-image: image-set(
+      url('/images/sections/hero/bg-mob.webp') type('image/webp'),
+      url('/images/sections/hero/bg-mob.png') type('image/png')
+    );
+
+    @media (min-resolution: 2dppx) {
+      background-image: image-set(
+        url('/images/sections/hero/bg-mob@2x.webp') type('image/webp'),
+        url('/images/sections/hero/bg-mob.png') type('image/png')
+      );
+    }
+  }
+}
+
+.title {
+  font-size: 60px;
+  line-height: 80px;
+  font-weight: 500;
+  font-style: italic;
+  color: $color-bg-secondary;
+  max-width: 960px;
+
+  @include tablet-max {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  @include mobile {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.titleAccent {
+  font-weight: 700;
+  font-style: normal;
+}

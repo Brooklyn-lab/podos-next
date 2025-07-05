@@ -1,0 +1,42 @@
+{
+  "title": "Мої Сертифікати",
+  "description": "В кабінеті я пропоную спеціалізовані та сучасні методи лікування. Використовую корекційні системи UniBrace, титанові ниті, які швидко допомагають в рішенні проблем врослих та деформованих нігтів. Проводжу терапії з лікування бородавок, тріщин на п'ятах, усуваю мозолі, натоптиші.",
+  "certificates": [
+    {
+      "imageUrl": "/images/sections/certificates/certificat-9",
+      "imageAlt": "Сертифікат ProPedis 3.3.2025"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-8",
+      "imageAlt": "Сертифікат Certesto 12.12.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-1",
+      "imageAlt": "Сертифікат ForFeet 12.12.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-2",
+      "imageAlt": "Сертифікат Spasja 1.12.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-3",
+      "imageAlt": "Сертифікат Spasja 29-30.11.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-4",
+      "imageAlt": "Сертифікат ForFeet 27-29.11.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-5",
+      "imageAlt": "Сертифікат UniBrace 05.11.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-6",
+      "imageAlt": "Сертифікат ForFeet 31.10.2024"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-7",
+      "imageAlt": "Сертифікат PodoRoom 04.03.2023"
+    }
+  ]
+}

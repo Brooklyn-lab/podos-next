@@ -1,0 +1,9 @@
+@use '@/styles/abstracts' as *;
+
+.services {
+  padding: 50px 0;
+
+  @include tablet-max {
+    padding: 20px 0;
+  }
+}

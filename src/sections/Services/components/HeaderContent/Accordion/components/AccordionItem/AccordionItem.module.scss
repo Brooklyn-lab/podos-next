@@ -1,0 +1,179 @@
+@use '@/styles/abstracts' as *;
+
+.item {
+  background-color: $color-bg-tertiary;
+  border-radius: 4px;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+
+    @include tablet-max {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.content {
+  background-color: $color-accent-secondary;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity 200ms linear,
+    max-height 200ms linear;
+  will-change: opacity, max-height;
+  position: relative;
+  border-radius: 4px;
+}
+
+.contentWrapper {
+  padding-left: 16px;
+  border-left: solid 2px $color-accent-primary;
+
+  @include mobile {
+    padding-left: 8px;
+  }
+}
+
+.button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 16px 12px 16px 24px;
+  border: none;
+  background: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  @include mobile {
+    padding: 14px 46px 14px 8px;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+
+    &::after {
+      cursor: pointer;
+    }
+  }
+
+  &[aria-expanded='true'] {
+    background-color: $color-accent-secondary;
+    padding-bottom: 8px;
+
+    @include mobile {
+      padding-bottom: 14px;
+    }
+
+    .icon {
+      fill: $color-white;
+      background-color: $color-accent-primary;
+      transition:
+        fill 200ms linear,
+        background-color 200ms linear,
+        transform 200ms linear;
+
+      svg {
+        transform: rotate(-90deg);
+        transition: transform 200ms linear;
+      }
+    }
+
+    + .content {
+      padding: 0 24px 24px;
+      transition: padding 0ms ease-in-out;
+      transition: background-color 0ms ease-in-out;
+      opacity: 1;
+      max-height: fit-content;
+      transition:
+        opacity 200ms linear,
+        max-height 200ms linear;
+      will-change: opacity, max-height;
+
+      @include mobile {
+        padding: 0 12px 12px;
+      }
+    }
+  }
+}
+
+.title {
+  font-size: 18px;
+  line-height: 44px;
+  letter-spacing: 0.2px;
+  color: $color-text-primary;
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: calc(40px + 8px);
+  height: calc(40px + 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition:
+    fill 200ms linear,
+    background-color 200ms linear,
+    transform 200ms linear;
+
+  @include mobile {
+    width: calc(32px + 8px);
+    height: calc(32px + 8px);
+    top: 4px;
+    right: 8px;
+  }
+
+  svg {
+    @include mobile {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  color: $color-text-secondary;
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+
+    @include mobile {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.accent {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+  color: $color-black;
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

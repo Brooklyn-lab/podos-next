@@ -7,5 +7,22 @@
   "additional": {
     "title": "Додатково:",
     "items": ["- паркінг", "- можливість в'їзду для осіб з інвалідністю"]
+  },
+  "socialMedia": {
+    "facebook": {
+      "href": "https://facebook.com/people/Podos-gabinet-podologiczny-Wroc%C5%82aw/61569433260872/",
+      "icon": "/images/icons.svg#facebook",
+      "alt": "Facebook"
+    },
+    "instagram": {
+      "href": "https://www.instagram.com/podos.wroclaw/",
+      "icon": "/images/icons.svg#instagram",
+      "alt": "Instagram"
+    },
+    "map": {
+      "href": "https://www.google.com/maps/place/Braniborska+61,+53-680+Wroc%C5%82aw,+Polska/@51.1124464,17.0076063,19z/data=!4m6!3m5!1s0x470fc206efb1a915:0xed5b779e497e2d24!8m2!3d51.1121852!4d17.0079697!16s%2Fg%2F11csjq3m7d?authuser=4&hl=pl&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
+      "icon": "/images/icons.svg#pin",
+      "alt": "Map"
+    }
   }
 }

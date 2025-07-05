@@ -1,0 +1,27 @@
+@use '@/styles/abstracts' as *;
+
+.content {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 40px;
+
+  @include tablet-max {
+    margin-bottom: 12px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @include mobile {
+    margin-bottom: 8px;
+  }
+}
+
+.headerContent {
+  max-width: 550px;
+  margin-top: 32px;
+
+  @include tablet-max {
+    max-width: initial;
+    margin-top: 0;
+  }
+}

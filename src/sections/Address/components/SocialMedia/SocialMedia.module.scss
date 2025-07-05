@@ -1,0 +1,12 @@
+@use '@/styles/abstracts' as *;
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+  @include mobile {
+    margin-top: 6px;
+  }
+}
