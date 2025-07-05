@@ -1,0 +1,11 @@
+{
+  "title": "Адреса",
+  "mapUrl": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d626.1959852510071!2d17.0076063!3d51.1124464!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc206efb1a915%3A0xed5b779e497e2d24!2zQnJhbmlib3Jza2EgNjEsIDUzLTY4MCBXcm9jxYJhdywg0J_QvtC70YzRidCw!5e0!3m2!1suk!2sua!4v1735480394447!5m2!1suk!2sua",
+  "mapLinkUrl": "https://www.google.com/maps/place/Braniborska+61,+53-680+Wroc%C5%82aw,+%D0%9F%D0%BE%D0%BB%D1%8C%D1%89%D0%B0/@51.1124464,17.0076063,19z/data=!4m6!3m5!1s0x470fc206efb1a915:0xed5b779e497e2d24!8m2!3d51.1121852!4d17.0079697!16s%2Fg%2F11csjq3m7d?authuser=4&hl=uk&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
+  "address": "53-680 Wrocław, вул. Braniborska 61/13",
+  "building": "(будівля Legnicka Residence, 2-й поверх, кабінет при салоні 'Pracownia fryzur')",
+  "additional": {
+    "title": "Додатково:",
+    "items": ["- паркінг", "- можливість в'їзду для осіб з інвалідністю"]
+  }
+}

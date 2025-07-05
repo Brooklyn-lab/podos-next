@@ -1,0 +1,48 @@
+@use '@/styles/abstracts' as *;
+
+.about {
+  padding: 50px 0;
+
+  @include tablet-max {
+    padding: 20px 0;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 32px;
+
+  @include tablet-max {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.contentText {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 30px;
+  flex: 58;
+
+  @include tablet-max {
+    flex: 100;
+    gap: 16px;
+  }
+
+  @include tablet-min {
+    gap: 12px;
+  }
+}
+
+.contentImage {
+  border-radius: 4px;
+  flex: 42;
+
+  @include tablet-max {
+    flex: 100;
+    margin: 0 auto;
+  }
+}

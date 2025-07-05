@@ -1,0 +1,36 @@
+@use '@/styles/abstracts' as *;
+
+.paragraph {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: $color-text-secondary;
+
+  & + & {
+    margin-top: 16px;
+
+    @include mobile {
+      margin-top: 8px;
+    }
+
+    &.mt4 {
+      margin-top: 4px;
+    }
+
+    &.mt8 {
+      margin-top: 8px;
+    }
+  }
+
+  @include tablet-min {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}

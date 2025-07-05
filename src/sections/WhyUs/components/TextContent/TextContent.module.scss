@@ -1,0 +1,38 @@
+@use '@/styles/abstracts' as *;
+
+.content {
+  background-color: $color-bg-tertiary;
+  padding: 32px;
+  gap: 16px;
+  max-width: 760px;
+  width: 100%;
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  text-align: center;
+
+  @include tablet-max {
+    max-width: 554px;
+    padding: 24px;
+  }
+
+  @include tablet-min {
+    position: static;
+    transform: none;
+    max-width: none;
+    padding: 16px 12px;
+  }
+}
+
+.header {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+
+  @include tablet-min {
+    margin-bottom: 8px;
+  }
+}

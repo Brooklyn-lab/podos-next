@@ -1,0 +1,53 @@
+@use '@/styles/abstracts' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 34px;
+  position: relative;
+
+  @include tablet-max {
+    gap: 180px 34px;
+  }
+}
+
+.topBlock {
+  align-items: flex-start;
+}
+
+.bottomBlock {
+  align-items: flex-end;
+}
+
+.leftTop {
+  @include tablet-max {
+    max-width: 290px;
+  }
+}
+
+.rightTop {
+  margin-right: 65px;
+
+  @include tablet-max {
+    margin-right: 0;
+    max-width: 215px;
+  }
+}
+
+.leftBottom {
+  margin-left: 65px;
+
+  @include tablet-max {
+    margin-left: 0;
+    max-width: 374px;
+  }
+}
+
+.rightBottom {
+  margin-bottom: 50px;
+
+  @include tablet-max {
+    margin-bottom: 54px;
+    max-width: 320px;
+  }
+}

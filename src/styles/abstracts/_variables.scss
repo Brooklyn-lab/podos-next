@@ -1,0 +1,36 @@
+// Breakpoints
+$mobile: 480px;
+$tablet-min: 768px;
+$tablet-max: 992px;
+$desktop: 1360px;
+
+// Container
+$container-desktop-width: 1360px;
+$container-tablet-width: 768px;
+$container-mobile-width: 480px;
+$container-padding-desktop: 40px;
+$container-padding-tablet: 20px;
+$container-padding-mobile: 10px;
+
+// Colors
+$color-white: #ffffff;
+$color-black: #000000;
+
+// Text colors
+$color-text-primary: #222222; // was $base1
+$color-text-secondary: #595959; // was $base0
+$color-text-logo: #162221; // was $logo
+
+// Background colors
+$color-bg-primary: #ffffff; // was $base
+$color-bg-secondary: #fffbfb; // was $base2
+$color-bg-tertiary: #f5f5f5; // was $base3
+$color-bg-quaternary: #eaeaea; // was $base4
+
+// Accent colors
+$color-accent-primary: #eba37a; // was $base-accent
+$color-accent-secondary: #fff6f2; // was $base-accent2
+$color-accent-tertiary: #ff7b00; // was $base-accent3
+
+// Typography
+$font-primary: var(--font-poppins), sans-serif;

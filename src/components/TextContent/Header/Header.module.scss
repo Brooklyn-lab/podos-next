@@ -1,0 +1,27 @@
+@use '@/styles/abstracts' as *;
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 4%;
+  color: $color-accent-primary;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+
+  @include tablet-max {
+    margin-bottom: 12px;
+  }
+
+  @include mobile {
+    margin-bottom: 4px;
+  }
+}
+
+.description {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: 4%;
+  color: $color-text-primary;
+}

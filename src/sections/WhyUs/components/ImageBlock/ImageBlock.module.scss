@@ -1,0 +1,11 @@
+@use '@/styles/abstracts' as *;
+
+.imageBlock {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 34px;
+
+  @include tablet-min {
+    display: none;
+  }
+}

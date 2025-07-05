@@ -1,0 +1,17 @@
+@use '@/styles/abstracts' as *;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $container-desktop-width;
+  padding: 0 $container-padding-desktop;
+
+  @include tablet-max {
+    padding: 0 $container-padding-tablet;
+    max-width: $container-tablet-width;
+  }
+
+  @include mobile {
+    padding: 0 $container-padding-mobile;
+  }
+}
