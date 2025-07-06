@@ -1,11 +1,10 @@
-import { Header } from '@/components/TextContent/Header'
 import { Container } from '@/components/Container'
 import styles from './Certificates.module.scss'
-import { Paragraph } from '@/components/TextContent/Paragraph'
 import { Locale } from '@/config/i18n'
 import plTranslations from '@/translations/pl/certificates.json'
 import uaTranslations from '@/translations/ua/certificates.json'
 import { CertificatesList } from './components/CertificatesList'
+import { HeaderContent } from './components/HeaderContent'
 
 const translations = {
   pl: plTranslations,
@@ -22,10 +21,7 @@ export const CertificatesSection = ({ locale }: CertificatesSectionProps) => {
   return (
     <section className={styles.certificates}>
       <Container>
-        <div className={styles.header}>
-          <Header title={t.title} />
-          <Paragraph className={styles.description} text={t.description} />
-        </div>
+        <HeaderContent locale={locale} />
         <CertificatesList certificates={t.certificates} />
       </Container>
     </section>

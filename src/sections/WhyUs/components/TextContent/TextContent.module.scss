@@ -27,9 +27,6 @@
 }
 
 .header {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 16px;
 
   @include tablet-min {

@@ -1,11 +1,11 @@
 import { Container } from '@/components/Container'
-import { Header } from '@/components/TextContent/Header'
 import { Paragraph } from '@/components/TextContent/Paragraph'
 import { type Locale } from '@/config/i18n'
 import styles from './About.module.scss'
 import plTranslations from '@/translations/pl/about.json'
 import uaTranslations from '@/translations/ua/about.json'
 import { Image } from '@/components/Image'
+import { HeaderContent } from '@/components/TextContent/HeaderContent'
 
 const translations = {
   pl: plTranslations,
@@ -23,13 +23,12 @@ export const AboutSection = ({ locale }: AboutSectionProps) => {
     <section className={styles.about}>
       <Container>
         <div className={styles.content}>
-          <div className={styles.contentText}>
-            <Header title={t.title} description={t.description} />
+          <HeaderContent title={t.title} description={t.description} className={styles.contentText}>
             <div>
               <Paragraph text={t.bio} />
               <Paragraph text={t.approach} />
             </div>
-          </div>
+          </HeaderContent>
 
           <Image
             src='/images/sections/about/about-desc'

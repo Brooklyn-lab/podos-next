@@ -1,0 +1,51 @@
+{
+  "title": "moje prace",
+  "description": "PodOS to gwarancja opieki na najwyższym poziomie. Odwiedź i dowiedz się jak mogę Ci pomóc!",
+  "headerParagraph1": "Wykonuję zabiegi z serii SPA - kąpiele parafinowe na dłonie i stopy, które mają nie tylko dobry efekt kosmetyczny dla skóry, ale także zdrowotny, fizjoterapeutyczny dla stawów. Oferuję masaż z elementami refleksologii jako odrębny rodzaj usługi, a także jako zakończenie zabiegów SPA.",
+  "works": [
+    {
+      "imageUrl": "/images/sections/works/work-1",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-2",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-3",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-4",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-5",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-6",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-7",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-8",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-9",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-10",
+      "imageAlt": "Praca Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-11",
+      "imageAlt": "Praca Olena Stepaniuk"
+    }
+  ]
+}

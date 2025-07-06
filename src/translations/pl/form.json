@@ -1,0 +1,9 @@
+{
+  "name": "Imię i nazwisko",
+  "phone": "Numer telefonu",
+  "email": "Adres e-mail",
+  "message": "Wiadomość",
+  "submitButton": "Wyślij",
+  "successMessage": "Wiadomość została wysłana pomyślnie!",
+  "errorMessage": "Wystąpił błąd podczas wysyłania wiadomości."
+}

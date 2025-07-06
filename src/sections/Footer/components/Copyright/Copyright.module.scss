@@ -1,0 +1,33 @@
+@use '@/styles/abstracts' as *;
+
+.copyright {
+  height: 48px;
+  background-color: $color-bg-tertiary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+
+  @include tablet-max {
+    margin-top: 70px;
+  }
+
+  @include mobile {
+    margin-top: 32px;
+    height: 32px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin: 0;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 16.8px;
+    }
+  }
+}

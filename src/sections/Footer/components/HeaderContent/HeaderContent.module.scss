@@ -1,0 +1,25 @@
+@use '@/styles/abstracts' as *;
+
+.content {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include tablet-max {
+    margin-bottom: 24px;
+  }
+
+  @include mobile {
+    margin-bottom: 16px;
+  }
+}
+
+.header {
+  margin-bottom: 16px;
+
+  @include tablet-max {
+    margin-bottom: 8px;
+  }
+}
