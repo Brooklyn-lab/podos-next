@@ -1,4 +1,3 @@
-import styles from './CertificatesList.module.scss'
 import { CertificateItem } from '../CertificateItem'
 import { Slider } from '@/components/Slider'
 
@@ -16,7 +15,6 @@ export const CertificatesList = ({ certificates }: CertificatesListProps) => {
     <Slider
       spaceBetween={16}
       slidesPerView={4.2}
-      className={styles.slider}
       breakpoints={{
         0: { slidesPerView: 1.1 },
         320: { slidesPerView: 1.4 },

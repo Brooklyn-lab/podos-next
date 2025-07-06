@@ -22,9 +22,12 @@ interface SliderProps {
 }
 
 const defaultBreakpoints = {
-  0: { slidesPerView: 1.4 },
-  480: { slidesPerView: 1.4 },
-  992: { slidesPerView: 2.5 },
+  0: { slidesPerView: 1.1 },
+  320: { slidesPerView: 1.4 },
+  420: { slidesPerView: 1.8 },
+  568: { slidesPerView: 2.4 },
+  768: { slidesPerView: 3 },
+  992: { slidesPerView: 3.6 },
   1200: { slidesPerView: 4.2 },
 }
 
@@ -42,6 +45,7 @@ export const Slider = ({
     <div className={`${styles.sliderWrapper} ${className}`}>
       <Swiper
         modules={[Navigation]}
+        loop={true}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,

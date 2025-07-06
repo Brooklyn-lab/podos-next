@@ -1,0 +1,51 @@
+{
+  "title": "Мої роботи",
+  "description": "PodOS - це гарантія догляду на найвищому рівні. Відвідайте і дізнайтеся, як можу вам допомогти!",
+  "headerParagraph1": "Виконую процедури із серії СПА - парафінові ванни для рук і стоп, які мають не тільки добрий косметичний ефект для шкіри, але й оздоровчий, фізіотерапевтичний для суглобів. Пропоную масаж з елементами рефлексології як окремий вид послуги, так на закінчення СПА процедур.",
+  "works": [
+    {
+      "imageUrl": "/images/sections/works/work-1",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-2",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-3",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-4",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-5",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-6",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-7",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-8",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-9",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-10",
+      "imageAlt": "Робота Olena Stepaniuk"
+    },
+    {
+      "imageUrl": "/images/sections/works/work-11",
+      "imageAlt": "Робота Olena Stepaniuk"
+    }
+  ]
+}

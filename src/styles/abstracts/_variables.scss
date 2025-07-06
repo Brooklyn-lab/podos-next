@@ -34,3 +34,8 @@ $color-accent-tertiary: #ff7b00; // was $base-accent3
 
 // Typography
 $font-primary: var(--font-poppins), sans-serif;
+
+// Notification colors
+$color-notification-success: #4caf50;
+$color-notification-error: #f44336;
+$color-notification-overlay: rgba($color-black, 0.5);
