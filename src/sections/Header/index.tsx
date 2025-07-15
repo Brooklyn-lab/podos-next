@@ -1,9 +1,7 @@
 import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
 import { Locale } from '@/config/i18n'
-import { NavList } from './components/Nav'
-import { LangSwitcher } from './components/LangSwitcher'
-import { Contacts } from './components/Contacts'
+import { MobileMenu } from './components/MobileMenu'
+import { DesktopNav } from './components/DesktopNav'
 import styles from './Header.module.scss'
 
 type HeaderProps = {
@@ -14,12 +12,9 @@ export const Header = ({ locale }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <Container className={styles.container}>
-        <Logo />
-        <NavList locale={locale} />
-        <div className={styles.contacts}>
-          <LangSwitcher locale={locale} />
-          <Contacts locale={locale} />
-        </div>
+        <DesktopNav locale={locale} />
+
+        <MobileMenu locale={locale} />
       </Container>
     </header>
   )

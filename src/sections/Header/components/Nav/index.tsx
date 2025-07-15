@@ -4,6 +4,7 @@ import uaTranslations from '@/translations/ua/header.json'
 import styles from './NavList.module.scss'
 import { NavItem } from './NavItem'
 import { getLocalizedHref } from '@/utils/getLocalizedHref'
+import cx from 'classnames'
 
 const translations = {
   pl: plTranslations,
@@ -12,16 +13,18 @@ const translations = {
 
 type NavListProps = {
   locale: Locale
+  className?: string
+  onItemClick?: () => void
 }
 
-export const NavList = ({ locale }: NavListProps) => {
+export const NavList = ({ locale, className, onItemClick }: NavListProps) => {
   const t = translations[locale]
   const navigation = t.navigation
 
   return (
-    <ul className={styles.list}>
+    <ul className={cx(styles.list, className)}>
       {Object.entries(navigation).map(([key, value]) => (
-        <NavItem key={key} href={getLocalizedHref(key, locale)}>
+        <NavItem key={key} href={getLocalizedHref(key, locale)} onClick={onItemClick}>
           {value}
         </NavItem>
       ))}

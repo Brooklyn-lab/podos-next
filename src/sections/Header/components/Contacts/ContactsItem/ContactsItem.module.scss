@@ -30,11 +30,20 @@
   @include tablet-max {
     display: none;
   }
+
+  &.textMobile {
+    display: none !important;
+  }
 }
 
 .icon {
   @include tablet-min {
     width: 12px;
     height: 12px;
+  }
+
+  &.iconMobile {
+    width: 12px !important;
+    height: 12px !important;
   }
 }

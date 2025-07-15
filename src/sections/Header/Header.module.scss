@@ -13,7 +13,6 @@
 .container {
   max-width: 1410px + 30px;
   padding: 0 15px;
-  gap: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,8 +25,4 @@
   @include mobile {
     padding: 0 10px;
   }
-}
-
-.contacts {
-  display: flex;
 }
