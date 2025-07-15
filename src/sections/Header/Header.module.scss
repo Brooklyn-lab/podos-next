@@ -1,0 +1,33 @@
+@use '@/styles/abstracts' as *;
+
+.header {
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  @include mobile {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.container {
+  max-width: 1410px + 30px;
+  padding: 0 15px;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  @include tablet-max {
+    max-width: 728px;
+  }
+
+  @include mobile {
+    padding: 0 10px;
+  }
+}
+
+.contacts {
+  display: flex;
+}

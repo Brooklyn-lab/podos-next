@@ -19,7 +19,7 @@ export const ContactForm = ({ locale }: ContactFormProps) => {
   const t = translations[locale]
 
   return (
-    <div className={styles.contactForm}>
+    <div className={styles.contactForm} id='contact'>
       <HeaderContent description={t.formTitle} className={styles.content} headerClassName={styles.header}>
         <Paragraph className={styles.description} text={t.formDescription} />
       </HeaderContent>

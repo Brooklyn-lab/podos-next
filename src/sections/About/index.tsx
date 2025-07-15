@@ -20,7 +20,7 @@ export const AboutSection = ({ locale }: AboutSectionProps) => {
   const t = translations[locale]
 
   return (
-    <section className={styles.about}>
+    <section className={styles.about} id='about'>
       <Container>
         <div className={styles.content}>
           <HeaderContent title={t.title} description={t.description} className={styles.contentText}>

@@ -1,0 +1,37 @@
+@use '@/styles/abstracts' as *;
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+
+  @include mobile {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.link {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5.5px 8.5px;
+  border-radius: 4px;
+
+  @include mobile {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 3px 5.5px;
+  }
+}
+
+.active {
+  color: $color-white;
+  background-color: $color-accent-primary;
+}

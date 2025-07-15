@@ -9,7 +9,7 @@ type WhyUsSectionProps = {
 
 export const WhyUsSection = ({ locale }: WhyUsSectionProps) => {
   return (
-    <section className={styles.whyUs}>
+    <section className={styles.whyUs} id='whyUs'>
       <Container>
         <List locale={locale} />
       </Container>

@@ -21,7 +21,7 @@ export const AddressSection = ({ locale }: AddressSectionProps) => {
   const t = translations[locale]
 
   return (
-    <section className={styles.address}>
+    <section className={styles.address} id='address'>
       <Container className={styles.container}>
         <HeaderContent locale={locale} />
         <Map mapUrl={t.mapUrl} />
