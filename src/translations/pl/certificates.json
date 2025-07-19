@@ -3,6 +3,10 @@
   "description": "W moim gabinecie oferuję specjalistyczne i nowoczesne metody leczenia. Stosuję systemy korekcji UniBrace, nici tytanowe, które szybko pomagają w rozwiązaniu problemów wrastających i zdeformowanych paznokci. Prowadzę terapię polegającą na leczeniu brodawek, pęknięć na piętach, eliminowaniu modzeli, odcisków.",
   "certificates": [
     {
+      "imageUrl": "/images/sections/certificates/certificat-10",
+      "imageAlt": "Certyfikat Spasja 15.07.2025"
+    },
+    {
       "imageUrl": "/images/sections/certificates/certificat-9",
       "imageAlt": "Certyfikat ProPedis 3.3.2025"
     },
