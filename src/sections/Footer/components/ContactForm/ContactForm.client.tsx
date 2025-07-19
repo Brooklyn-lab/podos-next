@@ -19,7 +19,11 @@ const translations = {
   ua: uaTranslations,
 } as const
 
-const API_KEY = 'b73c0779-3ca0-4f68-bdfc-f5592a047fb9'
+const API_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY!
+
+if (!process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY) {
+  console.error('NEXT_PUBLIC_WEB3FORMS_API_KEY is not set')
+}
 
 export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
   const t = translations[locale]
