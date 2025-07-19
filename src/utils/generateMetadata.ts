@@ -72,12 +72,40 @@ export function generateSchemaJSON(locale: Locale) {
 
   return {
     '@context': 'https://schema.org/',
-    '@type': 'WebSite',
+    '@type': ['MedicalBusiness', 'HealthAndBeautyBusiness', 'LocalBusiness'],
     name: seo.schema.name,
     alternateName: 'podoswroclaw.pl',
     url: currentUrl,
     description: seo.schema.description,
-    image: '',
+    image: `${SITE_URL}/images/og-image.jpg`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Braniborska 61/13',
+      addressLocality: 'Wrocław',
+      postalCode: '53-680',
+      addressCountry: 'PL',
+    },
+    telephone: '+48574154801',
+    email: 'podoswroclaw@gmail.com',
+    openingHours: ['Mo-Fr 09:00-18:00'],
+    priceRange: '$$',
+    serviceArea: {
+      '@type': 'City',
+      name: 'Wrocław',
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Podiatric Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: locale === 'pl' ? 'Usługi podologiczne' : 'Подологічні послуги',
+          },
+        },
+      ],
+    },
     sameAs: ['https://www.facebook.com/profile.php?id=61569433260872', 'https://www.instagram.com/podos.wroclaw/'],
   }
 }

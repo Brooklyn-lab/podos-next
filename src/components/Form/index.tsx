@@ -39,24 +39,29 @@ export const Form = ({ locale, onSubmit }: FormProps) => {
         <span className={styles.required}>{t.name}</span>
         <p className={styles.error}>{errors.name?.message as string}</p>
       </label>
-      <input className={styles.input} type='text' {...register('name', { required: 'Name is required' })} />
+      <input className={styles.input} id='name' type='text' {...register('name', { required: 'Name is required' })} />
 
       <label className={styles.label} htmlFor='phone'>
         <span className={styles.required}>{t.phone}</span>
         <p className={styles.error}>{errors.phone?.message as string}</p>
       </label>
-      <input className={styles.input} type='number' {...register('phone', { required: 'Phone is required' })} />
+      <input className={styles.input} id='phone' type='tel' {...register('phone', { required: 'Phone is required' })} />
 
       <label className={styles.label} htmlFor='email'>
         <span className={styles.required}>{t.email}</span>
         <p className={styles.error}>{errors.email?.message as string}</p>
       </label>
-      <input className={styles.input} type='email' {...register('email', { required: 'Email is required' })} />
+      <input
+        className={styles.input}
+        id='email'
+        type='email'
+        {...register('email', { required: 'Email is required' })}
+      />
 
       <label className={styles.label} htmlFor='message'>
         {t.message}
       </label>
-      <textarea className={styles.textarea} {...register('message', { required: false })} />
+      <textarea className={styles.textarea} id='message' {...register('message', { required: false })} />
 
       <button className={styles.submitButton} type='submit'>
         {t.submitButton}

@@ -19,7 +19,7 @@ export const SocialMedia = ({ locale }: SocialMediaProps) => {
   return (
     <ul className={styles.items}>
       {Object.values(t.socialMedia).map((item) => (
-        <SocialItem key={item.href} href={item.href} icon={item.icon} />
+        <SocialItem key={item.href} href={item.href} icon={item.icon} alt={item.alt} />
       ))}
     </ul>
   )

@@ -6,7 +6,7 @@ export const Logo = () => {
     <Link href='/' className={styles.logo}>
       <picture className={styles.image}>
         <source srcSet='/images/podos-logo.webp' type='image/webp' />
-        <img src='/images/podos-logo.png' alt='PODOS logo' />
+        <img src='/images/podos-logo.png' alt='PODOS logo' width='50' height='50' />
       </picture>
       <span className={styles.text}>PODOS</span>
     </Link>

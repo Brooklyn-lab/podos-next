@@ -14,6 +14,7 @@ export const Map = ({ mapUrl }: MapProps) => {
       allowFullScreen
       loading='lazy'
       referrerPolicy='no-referrer-when-downgrade'
+      title='PodOS Location Map'
     ></iframe>
   )
 }

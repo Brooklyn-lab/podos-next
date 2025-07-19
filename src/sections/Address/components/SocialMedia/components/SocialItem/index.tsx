@@ -6,11 +6,11 @@ import styles from './SocialItem.module.scss'
 type SocialItemProps = {
   href: string
   icon: string
+  alt?: string
 }
 
-export const SocialItem = ({ href, icon }: SocialItemProps) => {
+export const SocialItem = ({ href, icon, alt }: SocialItemProps) => {
   const handleSocialClick = () => {
-    // Extract platform name from icon or URL
     let platform = 'unknown'
 
     if (icon.includes('facebook')) platform = 'facebook'
@@ -24,8 +24,8 @@ export const SocialItem = ({ href, icon }: SocialItemProps) => {
 
   return (
     <li className={styles.item}>
-      <a href={href} target='_blank' rel='noopener noreferrer' onClick={handleSocialClick}>
-        <svg className={styles.icon} width='32' height='32'>
+      <a href={href} target='_blank' rel='noopener noreferrer' onClick={handleSocialClick} aria-label={alt}>
+        <svg className={styles.icon} width='32' height='32' aria-hidden='true'>
           <use xlinkHref={icon}></use>
         </svg>
       </a>

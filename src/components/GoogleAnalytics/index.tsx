@@ -28,6 +28,7 @@ export const GoogleAnalytics = ({ gtmId }: GoogleAnalyticsProps) => {
           height='0'
           width='0'
           style={{ display: 'none', visibility: 'hidden' }}
+          title='Google Tag Manager'
         />
       </noscript>
     </>
