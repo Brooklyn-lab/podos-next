@@ -4,15 +4,23 @@
   "certificates": [
     {
       "imageUrl": "/images/sections/certificates/certificat-10",
-      "imageAlt": "Certyfikat Spasja 15.07.2025"
+      "imageAlt": "Сертифікат Spasja 15.07.2025"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-13",
+      "imageAlt": "Сертифікат ForFeet 04.04.2025"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-12",
+      "imageAlt": "Сертифікат ForFeet 04.04.2025"
+    },
+    {
+      "imageUrl": "/images/sections/certificates/certificat-11",
+      "imageAlt": "Сертифікат ForFeet 04.04.2025"
     },
     {
       "imageUrl": "/images/sections/certificates/certificat-9",
       "imageAlt": "Certyfikat ProPedis 3.3.2025"
-    },
-    {
-      "imageUrl": "/images/sections/certificates/certificat-8",
-      "imageAlt": "Certyfikat Certesto"
     },
     {
       "imageUrl": "/images/sections/certificates/certificat-1",
