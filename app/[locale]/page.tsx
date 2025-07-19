@@ -10,15 +10,15 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params
   return generateSEOMetadata(locale)
 }
 
 type HomePageProps = {
-  params: {
+  params: Promise<{
     locale: Locale
-  }
+  }>
 }
 
 export default async function Page({ params }: HomePageProps) {
