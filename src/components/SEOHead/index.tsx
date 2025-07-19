@@ -16,7 +16,7 @@ export const SEOHead = ({ locale }: SEOHeadProps) => {
   const schemaData = generateSchemaJSON(locale)
   const seo = seoTranslations[locale]
   const SITE_URL = 'https://podoswroclaw.pl'
-  const currentUrl = locale === 'pl' ? SITE_URL : `${SITE_URL}/${locale}`
+  const currentUrl = `${SITE_URL}/${locale}`
 
   return (
     <>
@@ -27,10 +27,6 @@ export const SEOHead = ({ locale }: SEOHeadProps) => {
       <link rel='dns-prefetch' href='//www.googletagmanager.com' />
       <link rel='dns-prefetch' href='//fonts.googleapis.com' />
       <link rel='dns-prefetch' href='//api.web3forms.com' />
-      <link rel='canonical' href={currentUrl} />
-      <link rel='alternate' href={SITE_URL} hrefLang='pl' />
-      <link rel='alternate' href={`${SITE_URL}/ua`} hrefLang='uk' />
-      <link rel='alternate' href={SITE_URL} hrefLang='x-default' />
       <meta property='og:type' content='website' />
       <meta property='og:url' content={currentUrl} />
       <meta property='og:title' content={seo.og.title} />

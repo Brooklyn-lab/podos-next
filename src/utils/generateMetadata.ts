@@ -12,7 +12,7 @@ const SITE_URL = 'https://podoswroclaw.pl'
 
 export function generateSEOMetadata(locale: Locale): Metadata {
   const seo = seoTranslations[locale]
-  const currentUrl = locale === 'pl' ? SITE_URL : `${SITE_URL}/${locale}`
+  const currentUrl = `${SITE_URL}/${locale}`
   const ogImageUrl = `${SITE_URL}/images/og-image.jpg`
 
   return {
@@ -26,9 +26,9 @@ export function generateSEOMetadata(locale: Locale): Metadata {
     alternates: {
       canonical: currentUrl,
       languages: {
-        pl: SITE_URL,
+        pl: `${SITE_URL}/pl`,
         uk: `${SITE_URL}/ua`,
-        'x-default': SITE_URL,
+        'x-default': `${SITE_URL}/pl`,
       },
     },
 
@@ -68,7 +68,7 @@ export function generateSEOMetadata(locale: Locale): Metadata {
 
 export function generateSchemaJSON(locale: Locale) {
   const seo = seoTranslations[locale]
-  const currentUrl = locale === 'pl' ? SITE_URL : `${SITE_URL}/${locale}`
+  const currentUrl = `${SITE_URL}/${locale}`
 
   return {
     '@context': 'https://schema.org/',
