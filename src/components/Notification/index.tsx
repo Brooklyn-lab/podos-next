@@ -19,25 +19,6 @@ export const Notification = ({
   }, [onClose])
 
   useEffect(() => {
-    const scrollPosition = window.scrollY
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
-
-    document.documentElement.classList.add('no-scroll')
-    document.body.classList.add('no-scroll')
-    document.body.style.top = `-${scrollPosition}px`
-
-    return () => {
-      document.documentElement.classList.remove('no-scroll')
-      document.body.classList.remove('no-scroll')
-      document.documentElement.style.removeProperty('--scrollbar-width')
-
-      document.body.style.removeProperty('top')
-      window.scrollTo(0, scrollPosition)
-    }
-  }, [])
-
-  useEffect(() => {
     if (disableAutoClose) return
 
     const timer = setTimeout(() => {

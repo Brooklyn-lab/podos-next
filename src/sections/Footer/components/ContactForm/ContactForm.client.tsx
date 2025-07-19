@@ -58,9 +58,6 @@ export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
       console.error(error)
       setIsSuccess(false)
       setShowNotification(true)
-
-      // Track failed form submission
-      analytics.trackFormSubmission('contact_form', false)
     }
   }
 
