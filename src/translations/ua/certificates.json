@@ -3,6 +3,10 @@
   "description": "В кабінеті я пропоную спеціалізовані та сучасні методи лікування. Використовую корекційні системи UniBrace, титанові ниті, які швидко допомагають в рішенні проблем врослих та деформованих нігтів. Проводжу терапії з лікування бородавок, тріщин на п'ятах, усуваю мозолі, натоптиші.",
   "certificates": [
     {
+      "imageUrl": "/images/sections/certificates/certificat-10",
+      "imageAlt": "Сертифікат Spasja 15.07.2025"
+    },
+    {
       "imageUrl": "/images/sections/certificates/certificat-9",
       "imageAlt": "Сертифікат ProPedis 3.3.2025"
     },

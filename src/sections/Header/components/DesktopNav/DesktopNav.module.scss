@@ -1,0 +1,22 @@
+@use '@/styles/abstracts' as *;
+
+.desktopNav {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: none;
+
+  @include desktop-xl {
+    display: flex;
+  }
+}

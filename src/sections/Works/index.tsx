@@ -19,7 +19,7 @@ export const WorksSection = ({ locale }: WorksSectionProps) => {
   const { works } = translations[locale]
 
   return (
-    <section className={styles.works}>
+    <section className={styles.works} id='works'>
       <Container>
         <HeaderContent locale={locale} />
         <WorksList works={works} />

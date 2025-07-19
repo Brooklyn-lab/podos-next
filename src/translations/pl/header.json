@@ -1,0 +1,26 @@
+{
+  "navigation": {
+    "about": "O mnie",
+    "whyUs": "Dlaczego warto wybrać?",
+    "services": "Usługi i ceny",
+    "address": "Adres",
+    "works": "Moje prace",
+    "contact": "Kontakt"
+  },
+  "languages": {
+    "pl": "PL",
+    "ua": "UA"
+  },
+  "contacts": {
+    "phone": {
+      "href": "tel:+48574154801",
+      "text": "+48574154801",
+      "icon": "phone"
+    },
+    "email": {
+      "href": "mailto:podoswroclaw@gmail.com",
+      "text": "podoswroclaw@gmail.com",
+      "icon": "mail"
+    }
+  }
+}

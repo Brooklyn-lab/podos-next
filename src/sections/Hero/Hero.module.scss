@@ -27,20 +27,18 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  // Desktop by default
   background-image: image-set(
     url('/images/sections/hero/bg-desc.webp') type('image/webp'),
     url('/images/sections/hero/bg-desc.png') type('image/png')
   );
 
-  @media (min-resolution: 2dppx) {
+  @include retina {
     background-image: image-set(
       url('/images/sections/hero/bg-desc@2x.webp') type('image/webp'),
       url('/images/sections/hero/bg-desc.png') type('image/png')
     );
   }
 
-  // Tablet
   @include tablet-max {
     padding: 34px 24px;
     background-image: image-set(
@@ -48,7 +46,7 @@
       url('/images/sections/hero/bg-tabl.png') type('image/png')
     );
 
-    @media (min-resolution: 2dppx) {
+    @include retina {
       background-image: image-set(
         url('/images/sections/hero/bg-tabl@2x.webp') type('image/webp'),
         url('/images/sections/hero/bg-tabl.png') type('image/png')
@@ -56,7 +54,6 @@
     }
   }
 
-  // Mobile
   @include mobile {
     height: 440px;
     padding: 24px 16px;
@@ -65,7 +62,7 @@
       url('/images/sections/hero/bg-mob.png') type('image/png')
     );
 
-    @media (min-resolution: 2dppx) {
+    @include retina {
       background-image: image-set(
         url('/images/sections/hero/bg-mob@2x.webp') type('image/webp'),
         url('/images/sections/hero/bg-mob.png') type('image/png')

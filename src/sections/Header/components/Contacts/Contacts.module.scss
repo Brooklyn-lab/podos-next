@@ -1,0 +1,7 @@
+@use '@/styles/abstracts' as *;
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

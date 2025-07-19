@@ -1,0 +1,26 @@
+{
+  "navigation": {
+    "about": "Про мене",
+    "whyUs": "Чому PodOs?",
+    "services": "Послуги та ціни",
+    "address": "Адреса",
+    "works": "Мої роботи",
+    "contact": "Контакти"
+  },
+  "languages": {
+    "pl": "PL",
+    "ua": "UA"
+  },
+  "contacts": {
+    "phone": {
+      "href": "tel:+48574154801",
+      "text": "+48574154801",
+      "icon": "phone"
+    },
+    "email": {
+      "href": "mailto:podoswroclaw@gmail.com",
+      "text": "podoswroclaw@gmail.com",
+      "icon": "mail"
+    }
+  }
+}

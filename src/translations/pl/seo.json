@@ -1,0 +1,16 @@
+{
+  "title": "PodOS Gabinet Podologiczny Wrocław – zdrowe stopy - łatwe chodzenie.",
+  "description": "PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia.",
+  "og": {
+    "title": "PodOS Gabinet Podologiczny Wrocław – zdrowe stopy - łatwe chodzenie.",
+    "description": "PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia."
+  },
+  "twitter": {
+    "title": "PodOS Gabinet Podologiczny Wrocław – zdrowe stopy - łatwe chodzenie.",
+    "description": "PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia."
+  },
+  "schema": {
+    "name": "PodOS",
+    "description": "PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia."
+  }
+}

@@ -10,7 +10,7 @@ type ServicesSectionProps = {
 
 export const ServicesSection = ({ locale }: ServicesSectionProps) => {
   return (
-    <section className={styles.services}>
+    <section className={styles.services} id='services'>
       <Container>
         <HeaderContent locale={locale} />
         <Accordion locale={locale} />

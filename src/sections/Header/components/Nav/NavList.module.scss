@@ -1,0 +1,9 @@
+@use '@/styles/abstracts' as *;
+
+.list {
+  @include desktop-xl {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
