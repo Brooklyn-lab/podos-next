@@ -5,6 +5,7 @@ import { Locale } from '@/config/i18n'
 import { useState } from 'react'
 import { FieldValues } from 'react-hook-form'
 import { Notification } from '@/components/Notification'
+import { analytics } from '@/utils/analytics'
 import plTranslations from '@/translations/pl/form.json'
 import uaTranslations from '@/translations/ua/form.json'
 import styles from './ContactForm.module.scss'
@@ -43,6 +44,9 @@ export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
         setIsSuccess(true)
         setShowNotification(true)
         reset()
+
+        // Track successful form submission
+        analytics.trackFormSubmission('contact_form', true)
       } else {
         throw new Error('Form submission failed')
       }
@@ -50,6 +54,9 @@ export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
       console.error(error)
       setIsSuccess(false)
       setShowNotification(true)
+
+      // Track failed form submission
+      analytics.trackFormSubmission('contact_form', false)
     }
   }
 
