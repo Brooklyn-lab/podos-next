@@ -18,8 +18,8 @@ type AccordionProps = {
 
 export type AccordionItemContent = {
   price: string
-  treatment: string
-  duration: string
+  treatment?: string
+  duration?: string
 }
 
 export type AccordionItemData = {
@@ -42,17 +42,17 @@ export const Accordion = ({ locale }: AccordionProps) => {
   const secondColumn = itemsArray.slice(midPoint)
 
   return (
-    <ul className={styles.accordion}>
-      <div className={styles.column}>
+    <div className={styles.accordion}>
+      <ul className={styles.column} role='list'>
         {firstColumn.map(([key, value]) => (
           <AccordionItem key={key} itemKey={key} value={value} isExpanded={activeKey === key} onToggle={handleToggle} />
         ))}
-      </div>
-      <div className={styles.column}>
+      </ul>
+      <ul className={styles.column} role='list'>
         {secondColumn.map(([key, value]) => (
           <AccordionItem key={key} itemKey={key} value={value} isExpanded={activeKey === key} onToggle={handleToggle} />
         ))}
-      </div>
-    </ul>
+      </ul>
+    </div>
   )
 }

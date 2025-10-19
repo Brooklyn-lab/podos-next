@@ -123,6 +123,13 @@
         "treatment": "Poprawa kształtu, zapobieganie procesu zapalnego i wrastaniu paznokcia w skórę",
         "duration": "do 45min (1 palec)"
       }
+    },
+    "item16": {
+      "title": "Jonoforeza w leczeniu nadpotliwości stóp i dłoni",
+      "content": {
+        "price": "80 zł (Cena pakietu (10 zabiegów) - 750 zł)",
+        "treatment": "Zabieg fizjoterapeutyczny, podczas którego delikatne działanie prądu stałego pomaga zmniejszyć aktywność gruczołów potowych"
+      }
     }
   }
 }

@@ -15,7 +15,7 @@ export const AccordionItem = ({ value, itemKey, isExpanded, onToggle }: Accordio
   } = value
 
   return (
-    <div className={styles.item}>
+    <li className={styles.item}>
       <button className={styles.button} aria-expanded={isExpanded} onClick={() => onToggle(itemKey)}>
         <span className={styles.title}>{title}</span>
         <span className={styles.icon} aria-hidden='true'>
@@ -29,14 +29,18 @@ export const AccordionItem = ({ value, itemKey, isExpanded, onToggle }: Accordio
           <p className={styles.text}>
             <span className={styles.accent}>Cena:</span> {price}
           </p>
-          <p className={styles.text}>
-            <span className={styles.accent}>Zabieg:</span> {treatment}
-          </p>
-          <p className={styles.text}>
-            <span className={styles.accent}>Czas trwania:</span> {duration}
-          </p>
+          {treatment && (
+            <p className={styles.text}>
+              <span className={styles.accent}>Zabieg:</span> {treatment}
+            </p>
+          )}
+          {duration && (
+            <p className={styles.text}>
+              <span className={styles.accent}>Czas trwania:</span> {duration}
+            </p>
+          )}
         </div>
       </div>
-    </div>
+    </li>
   )
 }
