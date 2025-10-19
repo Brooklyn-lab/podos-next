@@ -5,6 +5,7 @@ import { AnalyticsPageView } from '@/components/AnalyticsPageView'
 import { GOOGLE_TAG_MANAGER_ID, isAnalyticsEnabled } from '@/constants/analytics'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   icons: {
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {isAnalyticsEnabled() && GOOGLE_TAG_MANAGER_ID && (
           <>
             <GoogleAnalytics gtmId={GOOGLE_TAG_MANAGER_ID} />
-            <AnalyticsPageView />
+            <Suspense fallback={null}>
+              <AnalyticsPageView />
+            </Suspense>
           </>
         )}
         <SpeedInsights />
