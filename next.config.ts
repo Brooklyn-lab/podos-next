@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
               "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com",
-              "frame-src 'self' https://www.googletagmanager.com",
+              "frame-src 'self' https://www.googletagmanager.com https://www.google.com https://maps.google.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
