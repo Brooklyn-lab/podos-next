@@ -2,7 +2,13 @@ import { CertificateItem } from '../CertificateItem'
 import { Slider } from '@/components/Slider'
 
 export type Certificate = {
-  imageUrl: string
+  image: {
+    webp1x?: string
+    webp2x?: string
+    png1x?: string
+    png2x?: string
+    fallback?: string
+  }
   imageAlt: string
 }
 
@@ -25,8 +31,12 @@ export const CertificatesList = ({ certificates }: CertificatesListProps) => {
         1200: { slidesPerView: 4.2 },
       }}
     >
-      {certificates.map((certificate) => (
-        <CertificateItem key={certificate.imageUrl} certificate={certificate} />
+      {certificates.map((certificate, index) => (
+        <CertificateItem
+          key={certificate.image.fallback || index}
+          certificate={certificate}
+          loading={index < 5 ? 'eager' : 'lazy'} // First 5 images eager
+        />
       ))}
     </Slider>
   )

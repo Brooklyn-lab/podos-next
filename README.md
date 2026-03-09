@@ -1,207 +1,185 @@
-# PodOS - Professional Podiatrist Website
+# PodOS - Landing with Payload CMS
 
-A modern, multilingual website built with Next.js for PodOS - a professional podiatrist practice in Wrocław, Poland.
+Podology clinic website with integrated CMS system for easy content management.
 
-## 🌟 Features
+## 🚀 Quick Start
 
-### 🌍 **Multilingual Support**
-
-- **Polish (PL)** and **Ukrainian (UA)** languages
-- Dynamic routing with locale-based paths
-- Professional translations for all content
-
-### 📱 **Modern Design**
-
-- Responsive design for all devices
-- Optimized images with WebP support
-- Beautiful animations and smooth transitions
-- Professional medical practice aesthetics
-
-### 🎯 **Key Sections**
-
-- **Hero Section** - Professional introduction and contact
-- **About** - Specialist background and expertise
-- **Services** - Detailed podiatric services with pricing
-- **Certificates** - Professional qualifications showcase
-- **Portfolio** - Before/after treatment gallery
-- **Contact Form** - Integrated appointment booking
-- **Location** - Interactive map and practice details
-
-### ⚡ **Performance & SEO**
-
-- Server-side rendering with Next.js 15
-- Optimized Core Web Vitals
-- SEO-friendly metadata and structured data
-- Fast loading times with image optimization
-
-### 📊 **Analytics & Tracking**
-
-- Google Tag Manager integration
-- Google Analytics 4 setup
-- Custom event tracking:
-  - Form submissions
-  - Contact interactions
-  - Social media clicks
-  - Certificate views
-
-### 🔒 **Security**
-
-- Environment variables for sensitive data
-- Secure form handling with Web3Forms
-- Production-ready deployment
-
-## 🛠️ **Tech Stack**
-
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: SCSS Modules
-- **Forms**: React Hook Form
-- **Analytics**: Google Tag Manager + GA4
-- **Deployment**: Vercel
-- **Image Optimization**: Next.js Image component
-- **Internationalization**: Custom i18n implementation
-
-## 🚀 **Getting Started**
-
-### Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-### Installation
+### 1. Install Dependencies
 
 ```bash
-# Clone the repository
-git clone https://github.com/Brooklyn-lab/podos-next.git
-cd podos-next
-
-# Install dependencies
 npm install
+```
 
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your values
+### 2. Environment Variables
 
-# Run development server
+The project is already configured with Neon database. Check `.env.local`:
+
+```env
+DATABASE_URL="postgresql://..." # Already configured
+PAYLOAD_SECRET="..."             # Already set
+NEXT_PUBLIC_SERVER_URL="http://localhost:3000"
+```
+
+### 3. Start Dev Server
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the website.
+- **Site**: http://localhost:3000
+- **Admin Panel**: http://localhost:3000/admin
 
-### Environment Variables
+## 📝 Content Management
 
-Create a `.env.local` file with:
+### Login to Admin Panel
 
-```bash
-# Web3Forms API Key (for contact form)
-NEXT_PUBLIC_WEB3FORMS_API_KEY=your_api_key_here
+1. Open http://localhost:3000/admin
+2. Login with your credentials
 
-# Google Analytics
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXXX
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_ENABLE_ANALYTICS=true
+### Editing Services
+
+1. Go to **Collections** → **Services**
+2. Select language version:
+   - 🇺🇦 **locale: ua** - Ukrainian
+   - 🇵🇱 **locale: pl** - Polish
+3. Click **Edit**
+4. Modify:
+   - Title, description, header text
+   - Add/remove services (click **Add Item**)
+   - Change prices, duration, descriptions
+5. Click **Save** → **changes appear immediately on site!**
+
+### Managing Certificates
+
+1. **Upload Images First**:
+   - Go to **Media** → **Create New**
+   - Upload certificate image
+   - Add alt text (description)
+   - Save
+
+2. **Add to Certificates Section**:
+   - Go to **Certificates** → select language (ua/pl)
+   - Click **Edit**
+   - In "Certificates" section → **Add Item**
+   - Select uploaded image
+   - Add alt text
+   - Save
+
+### Adding New Service
+
+1. Open **Services** (ua or pl)
+2. Click **Edit**
+3. Scroll to **Services** section
+4. Click **Add Item**
+5. Fill in:
+   - **Title**: Service name (e.g., "Педикюр подологічний")
+   - **Price**: Price (e.g., "від 200 злотих")
+   - **Duration**: Duration (e.g., "до 1г 30хв")
+   - **Treatment**: Description (optional)
+6. Click **Save**
+
+## 🌍 Localization
+
+All content exists in two languages:
+
+- **ua** - Ukrainian (primary)
+- **pl** - Polish
+
+When editing, make sure to update **both language versions**!
+
+## 🏗️ Project Structure
+
+```
+podos-next/
+├── app/
+│   ├── (payload)/          # ⚙️ Admin panel (do not edit)
+│   │   ├── admin/          # Admin UI
+│   │   └── api/            # REST API
+│   └── [locale]/           # 🌐 Frontend (ua/pl)
+├── src/
+│   ├── payload/
+│   │   └── collections/         # Data structure definitions
+│   ├── sections/                # Website sections
+│   ├── lib/payload.ts           # API integration
+│   └── translations/            # Static translations (non-CMS sections)
+├── public/
+│   └── media/                   # 📸 Uploaded images
+└── payload.config.js            # CMS configuration
 ```
 
-## 📁 **Project Structure**
+## 🔄 How It Works
 
-```
-src/
-├── components/          # Reusable UI components
-├── sections/           # Page sections (Hero, About, etc.)
-├── styles/            # Global styles and SCSS variables
-├── translations/      # i18n JSON files (pl, ua)
-├── utils/            # Utility functions
-├── constants/        # App constants
-├── types/           # TypeScript type definitions
-└── hooks/          # Custom React hooks
+1. **You edit content** in Admin Panel (http://localhost:3000/admin)
+2. **Data saves to database** (Neon PostgreSQL)
+3. **Website reads from CMS** every 60 seconds (auto-refresh)
+4. **Changes appear automatically** - no deploy needed!
 
-app/
-├── [locale]/       # Dynamic locale routing
-└── layout.tsx     # Root layout with analytics
-
-public/
-├── images/        # Optimized images
-└── favicon.ico   # Site favicon
-```
-
-## 🎨 **Key Features Implementation**
-
-### **Multilingual Routing**
-
-- Dynamic `[locale]` routing for PL/UA
-- Middleware for locale detection
-- SEO-optimized hreflang tags
-
-### **Contact Form**
-
-- React Hook Form validation
-- Web3Forms integration for email delivery
-- Success/error notification system
-- Analytics event tracking
-
-### **Image Optimization**
-
-- WebP format with PNG fallbacks
-- Responsive images with srcSet
-- Lazy loading for performance
-
-### **Analytics Integration**
-
-- Custom event tracking system
-- GDPR-friendly implementation
-- Comprehensive user interaction tracking
-
-## 🌐 **Deployment**
-
-The website is deployed on **Vercel** with automatic deployments from the main branch.
+## 🚀 Deployment
 
 ### Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Brooklyn-lab/podos-next)
+1. **Connect Repository** on Vercel
+2. **Environment Variables** (copy from `.env.local`):
+   - `DATABASE_URL` - your Neon connection string
+   - `PAYLOAD_SECRET` - your secret key
+   - `NEXT_PUBLIC_SERVER_URL` - `https://your-domain.vercel.app`
+3. **Deploy!**
 
-### Manual Deployment
+After deployment:
+
+- Site: `https://your-domain.vercel.app`
+- Admin: `https://your-domain.vercel.app/admin`
+
+⚠️ **Change admin password immediately after first deployment!**
+
+## 📚 Future: Adding Blog
+
+When client needs a blog:
+
+1. Create new collection in `src/payload/collections/BlogPosts.ts`
+2. Add route in `app/[locale]/blog/[slug]/page.tsx`
+3. Payload auto-generates admin UI!
+
+Client will be able to:
+
+- Write articles in rich text editor
+- Add images
+- Publish/unpublish
+- All without developer help!
+
+## 🐛 Troubleshooting
+
+### Port 3000 is in use
 
 ```bash
-# Build for production
-npm run build
-
-# Deploy to Vercel
-vercel --prod
+lsof -ti:3000 | xargs kill -9
+npm run dev
 ```
 
-## 📊 **Analytics Setup**
+### Can't login to admin
 
-Detailed analytics configuration is available in [GTM_SETUP.md](./GTM_SETUP.md).
+- Check credentials
+- Go to http://localhost:3000/admin (without /ua or /pl prefix!)
 
-**Tracked Events:**
+### Changes don't appear on site
 
-- Form submissions (success/failure)
-- Contact clicks (phone/email)
-- Social media interactions
-- Certificate image views
-- Navigation usage
+- Wait 60 seconds (cache)
+- Or restart dev server: `Ctrl+C` → `npm run dev`
 
-## 🤝 **Contributing**
+### Images not showing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- Check `public/media/` folder
+- Make sure alt text is filled
 
-## 📝 **License**
+## 📞 Need Help?
 
-This project is proprietary and confidential. All rights reserved.
+Check `INSTRUCTIONS_CLIENT.md` for detailed Ukrainian instructions for the client.
 
-## 📞 **Contact**
+## 🛠️ Developer Commands
 
-**PodOS - Professional Podiatrist Practice**
-
-- **Address**: Braniborska 61/13, 53-680 Wrocław, Poland
-- **Phone**: +48 574 154 801
-- **Email**: podoswroclaw@gmail.com
-- **Website**: [podoswroclaw.pl](https://podoswroclaw.pl)
-
----
-
-Built with ❤️ using Next.js and modern web technologies.
+```bash
+npm run dev              # Start development
+npm run build            # Build for production
+npm run payload          # Payload CLI
+npm run type-check       # TypeScript check
+```
