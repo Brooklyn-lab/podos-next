@@ -1,5 +1,4 @@
 import { Container } from '@/components/Container'
-import { SkeletonTitle, SkeletonText, SkeletonBlock } from '@/components/Skeleton'
 import { Locale } from '@/config/i18n'
 import { getWorks, type WorkItem } from '@/lib/payload'
 import { HeaderContent } from './components/HeaderContent'
@@ -13,14 +12,22 @@ type WorksSectionProps = {
 const WorksSkeleton = () => (
   <section className={styles.works} id='works'>
     <Container>
-      <SkeletonTitle />
-      <SkeletonText width='medium' />
-      <SkeletonText width='short' />
-      <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
+      <div className={styles.skeletonHeader}>
+        <div className={styles.skeletonLeft}>
+          <div className={styles.skeletonLabel} />
+          <div className={styles.skeletonDescription} />
+          <div className={styles.skeletonDescription} />
+        </div>
+        <div className={styles.skeletonRight}>
+          <div className={styles.skeletonLine} />
+          <div className={styles.skeletonLine} />
+          <div className={styles.skeletonLine} />
+          <div className={styles.skeletonLineShort} />
+        </div>
+      </div>
+      <div className={styles.skeletonGrid}>
         {Array.from({ length: 4 }, (_, i) => (
-          <div key={i} style={{ flex: 1 }}>
-            <SkeletonBlock />
-          </div>
+          <div key={i} className={styles.skeletonCard} />
         ))}
       </div>
     </Container>
