@@ -1,0 +1,64 @@
+---
+description: Markup requirements for HTML and React components
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# HTML Standards
+
+## Semantic Elements
+
+Use semantic HTML for better accessibility and SEO.
+
+Prefer: `<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`, `<article>`, `<section>`
+
+```tsx
+// ❌ Bad
+<div className={styles.header}>
+  <div className={styles.nav}>...</div>
+</div>
+
+// ✅ Good
+<header className={styles.header}>
+  <nav className={styles.nav}>...</nav>
+</header>
+```
+
+## Element Nesting
+
+Inline elements cannot contain block elements.
+
+```tsx
+// ❌ Bad
+<span><p>Some text</p></span>
+
+// ✅ Good
+<div><p>Some text</p></div>
+```
+
+## Minimal DOM
+
+Avoid unnecessary wrapper elements — use CSS Grid/Flexbox in SCSS instead.
+
+```tsx
+// ❌ Bad: excessive nesting
+<div className={styles.wrapper}>
+  <div className={styles.inner}>
+    <div className={styles.content}>
+      {children}
+    </div>
+  </div>
+</div>
+
+// ✅ Good: flat structure
+<section className={styles.content}>
+  {children}
+</section>
+```
+
+## Accessibility
+
+- All `<img>` must have `alt` text
+- Interactive elements must be focusable and have visible focus styles
+- Use `<button>` for actions, `<a>` for navigation — never `<div onClick>`
+- Form inputs need associated `<label>` elements

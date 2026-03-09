@@ -1,0 +1,61 @@
+---
+description: SCSS Modules styling conventions
+globs: "**/*.module.scss"
+alwaysApply: false
+---
+
+# SCSS Modules
+
+## File Naming
+
+`ComponentName.module.scss` — colocated with `index.tsx`.
+
+## Class Naming
+
+Use camelCase for class names (required for JS import).
+
+```scss
+// ❌ Bad
+.header-content { ... }
+.Header_Content { ... }
+
+// ✅ Good
+.headerContent { ... }
+.wrapper { ... }
+```
+
+## Nesting
+
+Max 3 levels deep. Flatten with BEM-like naming when deeper.
+
+```scss
+// ❌ Bad: too deep
+.card {
+  .header {
+    .title {
+      .icon { ... }
+    }
+  }
+}
+
+// ✅ Good
+.card { ... }
+.cardHeader { ... }
+.cardTitle { ... }
+.cardIcon { ... }
+```
+
+## Responsive
+
+- Mobile-first approach
+- Use variables or mixins for breakpoints — keep them consistent
+- Avoid hardcoded pixel values for breakpoints
+
+## Variables
+
+- Use SCSS variables for colors, spacing, fonts in shared files (`src/styles/`)
+- Use CSS custom properties when runtime theming is needed
+
+## No Utility Classes
+
+This project uses SCSS Modules, not Tailwind. Don't add inline utility classes to JSX.

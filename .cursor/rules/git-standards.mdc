@@ -1,0 +1,46 @@
+---
+description: Git commit and branch conventions
+alwaysApply: true
+---
+
+# Git Standards
+
+## Commit Messages
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/).
+
+**Format:** `type(scope): description`
+
+- Present tense, imperative mood, lowercase
+- Keep subject under 72 characters
+- Reference issue number in body or footer: `Closes #8`
+
+**Types:** `feat`, `fix`, `chore`, `refactor`, `docs`, `style`, `perf`, `test`, `ci`
+
+```bash
+feat(seo): add sitemap.xml generation
+fix(services): correct accordion height on mobile
+chore(deps): update payload to 3.76
+refactor(i18n): extract locale config to shared module
+perf(images): lazy-load below-the-fold images
+```
+
+## Branch Naming
+
+**Format:** `type/issue-number-short-description`
+
+**Types:** `feature`, `bugfix`, `hotfix`, `chore`, `refactor`
+
+```bash
+feature/8-add-sitemap-robots
+bugfix/15-fix-accordion-animation
+chore/20-update-dependencies
+refactor/25-extract-locale-utils
+```
+
+## Workflow
+
+1. Always branch from `dev`
+2. One branch per issue
+3. Verify `npm run build` passes before committing
+4. PR targets `dev`, include `Closes #N` in PR body
