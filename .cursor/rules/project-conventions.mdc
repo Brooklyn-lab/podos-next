@@ -1,0 +1,22 @@
+---
+description: Core project context for podos-next
+alwaysApply: true
+---
+
+# Project: podos-next
+
+## Tech Stack
+
+- **Next.js 16** — App Router, `app/` at project root
+- **React 19** — Server Components by default
+- **Payload CMS 3.x** — admin at `/admin`, API at `/api`
+- **PostgreSQL** via `@payloadcms/db-postgres`
+- **SCSS Modules** — component-scoped styles (no Tailwind utility classes)
+- **TypeScript** — strict mode
+- **i18n**: `pl` (default), `ua` — via `[locale]` dynamic segment
+- **Domain**: `https://podoswroclaw.pl`
+
+## Language
+
+- All code, comments, variable names, commit messages — **English**
+- User-facing text lives in `src/translations/{pl,ua}/*.json`
