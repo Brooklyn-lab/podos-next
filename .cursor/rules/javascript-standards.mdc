@@ -1,0 +1,87 @@
+---
+description: General JavaScript/TypeScript standards and best practices
+globs: "**/*.{js,ts,tsx,jsx}"
+alwaysApply: false
+---
+
+# JavaScript Standards
+
+## Avoid Nested Ternaries
+
+Use clear conditionals instead of complex nested ternaries.
+
+```typescript
+// ❌ Bad
+return isPolish ? (hasAccess ? thirdValue : fourthValue) : secondValue
+
+// ✅ Good
+if (isPolish) {
+  return hasAccess ? thirdValue : fourthValue
+}
+return secondValue
+```
+
+## Use Constants for Magic Values
+
+```typescript
+// ❌ Bad
+if (user.type === 4) { /* ... */ }
+if (status === 'active') { /* ... */ }
+
+// ✅ Good
+const USER_TYPES = { GUEST: 4, ADMIN: 1 } as const
+const STATUS = { ACTIVE: 'active', INACTIVE: 'inactive' } as const
+
+if (user.type === USER_TYPES.GUEST) { /* ... */ }
+```
+
+## Parallel Async Operations
+
+Use `Promise.all()` for independent async operations.
+
+```typescript
+// ❌ Bad — sequential when not needed
+const services = await getServices()
+const certificates = await getCertificates()
+
+// ✅ Good — parallel
+const [services, certificates] = await Promise.all([
+  getServices(),
+  getCertificates(),
+])
+```
+
+## Imports
+
+- Use `@/` path alias (mapped to `src/`), never relative `../../` paths
+- Import order is handled by `@trivago/prettier-plugin-sort-imports` — don't reorder manually
+
+```typescript
+// ❌ Bad
+import { Locale } from '../../config/i18n'
+
+// ✅ Good
+import { Locale } from '@/config/i18n'
+```
+
+## Early Returns
+
+Prefer early returns over deep nesting.
+
+```typescript
+// ❌ Bad
+function process(data: Data | null) {
+  if (data) {
+    if (data.isValid) {
+      return transform(data)
+    }
+  }
+  return null
+}
+
+// ✅ Good
+function process(data: Data | null) {
+  if (!data?.isValid) return null
+  return transform(data)
+}
+```

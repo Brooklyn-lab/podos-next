@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { withPayload } from '@payloadcms/next/withPayload'
 
 const nextConfig: NextConfig = {
   compress: true,
@@ -6,6 +7,28 @@ const nextConfig: NextConfig = {
   generateEtags: false,
   async headers() {
     return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https: blob:",
+              "font-src 'self' data:",
+              "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com",
+              "frame-src 'self' https://www.googletagmanager.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'self'",
+              'upgrade-insecure-requests',
+            ].join('; '),
+          },
+        ],
+      },
       {
         source: '/images/:path*',
         headers: [
@@ -37,4 +60,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withPayload(nextConfig)

@@ -1,0 +1,42 @@
+---
+description: Folder and component structure guidelines
+alwaysApply: true
+---
+
+# General Structure
+
+## Component Pattern
+
+```
+ComponentName/
+├── index.tsx                    # Component logic and JSX
+├── ComponentName.module.scss    # Scoped styles
+└── components/                  # Sub-components (if needed)
+    └── SubComponent/
+        ├── index.tsx
+        └── SubComponent.module.scss
+```
+
+Rules:
+- `index.tsx` as entry point (named export)
+- PascalCase folder names
+- One component per file
+- Colocate styles with component
+- Keep components under ~100 lines; extract sub-components or hooks when larger
+
+## Sections vs Components
+
+- `src/sections/` — page-level blocks (Hero, Services, Contacts)
+- `src/components/` — reusable UI pieces (Button, Container, Slider)
+
+## Payload CMS
+
+- `src/payload/collections/` — one file per collection
+- `src/payload/globals/` — one file per global
+- `src/payload/components/` — custom admin UI components
+
+## Translations
+
+- `src/translations/pl/*.json` — Polish
+- `src/translations/ua/*.json` — Ukrainian
+- Keys must match between locales

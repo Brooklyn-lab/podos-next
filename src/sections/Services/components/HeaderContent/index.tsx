@@ -1,27 +1,18 @@
 import { HeaderContent as SharedHeaderContent } from '@/components/TextContent/HeaderContent'
 import { Paragraph } from '@/components/TextContent/Paragraph'
 import styles from './HeaderContent.module.scss'
-import { type Locale } from '@/config/i18n'
-import plTranslations from '@/translations/pl/services.json'
-import uaTranslations from '@/translations/ua/services.json'
-
-const translations = {
-  pl: plTranslations,
-  ua: uaTranslations,
-} as const
+import type { ServicesData } from '@/lib/payload'
 
 type HeaderContentProps = {
-  locale: Locale
+  data: ServicesData
 }
 
-export const HeaderContent = ({ locale }: HeaderContentProps) => {
-  const t = translations[locale]
-
+export const HeaderContent = ({ data }: HeaderContentProps) => {
   return (
-    <SharedHeaderContent title={t.title} description={t.description} className={styles.content}>
+    <SharedHeaderContent title={data.title} description={data.description} className={styles.content}>
       <div className={styles.headerContent}>
-        <Paragraph text={t.headerParagraph1} />
-        <Paragraph text={t.headerParagraph2} />
+        <Paragraph text={data.headerParagraph1} />
+        <Paragraph text={data.headerParagraph2} />
       </div>
     </SharedHeaderContent>
   )
