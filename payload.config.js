@@ -7,6 +7,7 @@ import sharp from 'sharp'
 
 import { Services } from './src/payload/collections/Services.ts'
 import { Certificates } from './src/payload/collections/Certificates.ts'
+import { Works } from './src/payload/collections/Works.ts'
 import { Media } from './src/payload/collections/Media.ts'
 
 const filename = fileURLToPath(import.meta.url)
@@ -41,6 +42,7 @@ export default buildConfig({
   collections: [
     Services,
     Certificates,
+    Works,
     Media,
     {
       slug: 'users',

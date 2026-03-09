@@ -1,8 +1,14 @@
-import { WorkItem } from '../WorkItem'
 import { Slider } from '@/components/Slider'
+import { WorkItem } from '../WorkItem'
 
 export type Work = {
-  imageUrl: string
+  image: {
+    webp1x?: string
+    webp2x?: string
+    png1x?: string
+    png2x?: string
+    fallback?: string
+  }
   imageAlt: string
 }
 
@@ -24,8 +30,8 @@ export const WorksList = ({ works }: WorksListProps) => {
         992: { slidesPerView: 3.5 },
       }}
     >
-      {works.map((work) => (
-        <WorkItem key={work.imageUrl} work={work} />
+      {works.map((work, index) => (
+        <WorkItem key={work.image.fallback || index} work={work} loading={index < 5 ? 'eager' : 'lazy'} />
       ))}
     </Slider>
   )

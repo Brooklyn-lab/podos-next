@@ -50,6 +50,18 @@ export type CertificatesData = {
   certificates: CertificateItem[]
 }
 
+export type WorkItem = {
+  image?: CertificateImage
+  imageAlt?: string
+}
+
+export type WorksData = {
+  title: string
+  description: string
+  headerParagraph1: string
+  works: WorkItem[]
+}
+
 export async function getServices(locale: Locale): Promise<ServicesData | null> {
   try {
     const url = `${API_URL}/api/services?where[locale][equals]=${locale}&limit=1`
@@ -85,6 +97,24 @@ export async function getCertificates(locale: Locale): Promise<CertificatesData 
     return data.docs[0]
   } catch (error) {
     console.error('Error fetching certificates:', error)
+    return null
+  }
+}
+
+export async function getWorks(locale: Locale): Promise<WorksData | null> {
+  try {
+    const res = await fetch(`${API_URL}/api/works?where[locale][equals]=${locale}&limit=1&depth=2`, {
+      next: { revalidate: 60 },
+    })
+
+    if (!res.ok) return null
+
+    const data = await res.json()
+    if (!data.docs || data.docs.length === 0) return null
+
+    return data.docs[0]
+  } catch (error) {
+    console.error('Error fetching works:', error)
     return null
   }
 }
