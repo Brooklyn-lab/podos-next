@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next'
 
-const SITE_URL = 'https://podoswroclaw.pl'
+import { i18n } from '@/config/i18n'
+import { SITE_URL } from '@/config/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const locales = ['pl', 'ua'] as const
+  const { locales } = i18n
   const now = new Date()
 
   const localeEntries: MetadataRoute.Sitemap = locales.map((locale) => ({

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const SITE_URL = 'https://podoswroclaw.pl'
+import { SITE_URL } from '@/config/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
