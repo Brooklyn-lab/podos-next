@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { revalidateAfterChange } from '../hooks/revalidateContent'
+
 export const Services: CollectionConfig = {
   slug: 'services',
   admin: {
@@ -8,7 +10,10 @@ export const Services: CollectionConfig = {
     group: 'Content',
   },
   access: {
-    read: () => true, // Public read access
+    read: () => true,
+  },
+  hooks: {
+    afterChange: [revalidateAfterChange],
   },
   fields: [
     {

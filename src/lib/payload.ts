@@ -55,7 +55,7 @@ export async function getServices(locale: Locale): Promise<ServicesData | null> 
     const url = `${API_URL}/api/services?where[locale][equals]=${locale}&limit=1`
 
     const res = await fetch(url, {
-      next: { revalidate: 60 }, // Revalidate every minute
+      next: { revalidate: false },
     })
 
     if (!res.ok) return null
@@ -74,7 +74,7 @@ export async function getServices(locale: Locale): Promise<ServicesData | null> 
 export async function getCertificates(locale: Locale): Promise<CertificatesData | null> {
   try {
     const res = await fetch(`${API_URL}/api/certificates?where[locale][equals]=${locale}&limit=1&depth=2`, {
-      next: { revalidate: 60 },
+      next: { revalidate: false },
     })
 
     if (!res.ok) return null
