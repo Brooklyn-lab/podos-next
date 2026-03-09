@@ -2,7 +2,9 @@ import { type Locale } from '@/config/i18n'
 
 import type { CertificatesData, CertificatesGlobal, ServicesData, WorksData, WorksGlobal } from './types'
 
-const API_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+const API_URL =
+  process.env.NEXT_PUBLIC_SERVER_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
 const FETCH_TIMEOUT_MS = 5000
 
 function fetchWithTimeout(url: string, options?: RequestInit): Promise<Response> {
