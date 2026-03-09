@@ -6,10 +6,20 @@ const API_URL =
   process.env.NEXT_PUBLIC_SERVER_URL ||
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
 const FETCH_TIMEOUT_MS = 5000
+const BYPASS_SECRET = process.env.VERCEL_AUTOMATION_BYPASS_SECRET
+
+function buildHeaders(): HeadersInit {
+  const headers: HeadersInit = {}
+  if (BYPASS_SECRET) {
+    headers['x-vercel-protection-bypass'] = BYPASS_SECRET
+  }
+  return headers
+}
 
 function fetchWithTimeout(url: string, options?: RequestInit): Promise<Response> {
   return fetch(url, {
     ...options,
+    headers: { ...buildHeaders(), ...options?.headers },
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   })
 }
