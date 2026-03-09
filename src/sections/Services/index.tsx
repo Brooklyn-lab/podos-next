@@ -1,5 +1,4 @@
 import { Container } from '@/components/Container'
-import { SkeletonTitle, SkeletonBlock } from '@/components/Skeleton'
 import styles from './Services.module.scss'
 import { type Locale } from '@/config/i18n'
 import { HeaderContent } from './components/HeaderContent'
@@ -13,16 +12,30 @@ type ServicesSectionProps = {
 const ServicesSkeleton = () => (
   <section className={styles.services} id='services'>
     <Container>
-      <SkeletonTitle />
-      <div style={{ display: 'flex', gap: 16 }}>
-        <div style={{ flex: 1 }}>
-          {Array.from({ length: 8 }, (_, i) => (
-            <SkeletonBlock key={i} />
+      <div className={styles.skeletonHeader}>
+        <div className={styles.skeletonLeft}>
+          <div className={styles.skeletonLabel} />
+          <div className={styles.skeletonTitle} />
+          <div className={styles.skeletonTitle} />
+          <div className={styles.skeletonTitle} />
+        </div>
+        <div className={styles.skeletonRight}>
+          <div className={styles.skeletonLine} />
+          <div className={styles.skeletonLine} />
+          <div className={styles.skeletonLineShort} />
+          <div className={styles.skeletonLine} />
+          <div className={styles.skeletonLineShort} />
+        </div>
+      </div>
+      <div className={styles.skeletonAccordion}>
+        <div className={styles.skeletonColumn}>
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={i} className={styles.skeletonRow} />
           ))}
         </div>
-        <div style={{ flex: 1 }}>
-          {Array.from({ length: 8 }, (_, i) => (
-            <SkeletonBlock key={i} />
+        <div className={styles.skeletonColumn}>
+          {Array.from({ length: 5 }, (_, i) => (
+            <div key={i} className={styles.skeletonRow} />
           ))}
         </div>
       </div>

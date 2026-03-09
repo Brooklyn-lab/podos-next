@@ -1,5 +1,4 @@
 import { Container } from '@/components/Container'
-import { SkeletonTitle, SkeletonText, SkeletonBlock } from '@/components/Skeleton'
 import styles from './Certificates.module.scss'
 import { Locale } from '@/config/i18n'
 import { getCertificates, type CertificateItem } from '@/lib/payload'
@@ -13,14 +12,16 @@ type CertificatesSectionProps = {
 const CertificatesSkeleton = () => (
   <section className={styles.certificates}>
     <Container>
-      <SkeletonTitle />
-      <SkeletonText width='medium' />
-      <SkeletonText width='short' />
-      <div style={{ display: 'flex', gap: 16, marginTop: 24 }}>
+      <div className={styles.skeletonHeader}>
+        <div className={styles.skeletonTitle} />
+        <div className={styles.skeletonLine} />
+        <div className={styles.skeletonLine} />
+        <div className={styles.skeletonLine} />
+        <div className={styles.skeletonLine} />
+      </div>
+      <div className={styles.skeletonGrid}>
         {Array.from({ length: 4 }, (_, i) => (
-          <div key={i} style={{ flex: 1 }}>
-            <SkeletonBlock />
-          </div>
+          <div key={i} className={styles.skeletonCard} />
         ))}
       </div>
     </Container>

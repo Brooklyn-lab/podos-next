@@ -7,3 +7,115 @@
     padding: 20px 0;
   }
 }
+
+// --- Skeleton ---
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+%bone {
+  background: linear-gradient(90deg, $color-bg-tertiary 25%, $color-bg-quaternary 50%, $color-bg-tertiary 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+.skeletonHeader {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+
+  @include tablet-max {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.skeletonLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.skeletonLabel {
+  @extend %bone;
+  width: 180px;
+  height: 14px;
+  margin-bottom: 16px;
+
+  @include mobile {
+    margin-bottom: 8px;
+  }
+}
+
+.skeletonTitle {
+  @extend %bone;
+  height: 36px;
+  margin-bottom: 10px;
+
+  &:nth-child(2) {
+    width: 95%;
+  }
+
+  &:nth-child(3) {
+    width: 70%;
+  }
+
+  @include mobile {
+    height: 22px;
+  }
+}
+
+.skeletonRight {
+  flex: 1;
+  min-width: 0;
+  padding-top: 32px;
+
+  @include tablet-max {
+    padding-top: 0;
+  }
+}
+
+.skeletonLine {
+  @extend %bone;
+  height: 14px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.skeletonLineShort {
+  @extend %bone;
+  height: 14px;
+  width: 55%;
+  margin-bottom: 10px;
+}
+
+.skeletonAccordion {
+  display: flex;
+  gap: 16px;
+
+  @include tablet-max {
+    flex-direction: column;
+  }
+}
+
+.skeletonColumn {
+  width: calc(50% - 8px);
+
+  @include tablet-max {
+    width: 100%;
+  }
+}
+
+.skeletonRow {
+  @extend %bone;
+  height: 56px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
