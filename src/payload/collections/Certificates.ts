@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { revalidateAfterChange } from '../hooks/revalidateContent'
+
 export const Certificates: CollectionConfig = {
   slug: 'certificates',
   admin: {
@@ -9,6 +11,9 @@ export const Certificates: CollectionConfig = {
   },
   access: {
     read: () => true,
+  },
+  hooks: {
+    afterChange: [revalidateAfterChange],
   },
   fields: [
     {
