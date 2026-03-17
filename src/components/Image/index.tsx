@@ -16,10 +16,9 @@ export type ImageProps = {
   height: number
   loading?: 'lazy' | 'eager'
   className?: string
-  preload?: boolean
 }
 
-export const Image = ({ src, alt, width, height, loading = 'lazy', className, preload }: ImageProps) => {
+export const Image = ({ src, alt, width, height, loading = 'lazy', className }: ImageProps) => {
   const isString = typeof src === 'string'
   const hasExtension = isString ? /\.(png|jpg|jpeg|webp)$/i.test(src) : false
   const normalize = (value?: string) => (value && value.length > 0 ? value : undefined)
@@ -50,7 +49,6 @@ export const Image = ({ src, alt, width, height, loading = 'lazy', className, pr
 
   return (
     <div className={cx(styles.image, className)}>
-      {preload && <link rel='preload' as='image' href={imgSrc} />}
       <picture>
         {webpSrcSet && <source srcSet={webpSrcSet} type='image/webp' />}
         <img src={imgSrc} srcSet={pngSrcSet} alt={alt} loading={loading} width={width} height={height} />

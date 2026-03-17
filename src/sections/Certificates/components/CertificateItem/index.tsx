@@ -9,5 +9,5 @@ type CertificateItemProps = {
 export const CertificateItem = ({ certificate, loading = 'lazy' }: CertificateItemProps) => {
   const { image, imageAlt } = certificate
 
-  return <Image src={image} alt={imageAlt} width={294} height={220} loading={loading} preload={loading === 'eager'} />
+  return <Image src={image} alt={imageAlt} width={294} height={220} loading={loading} />
 }
