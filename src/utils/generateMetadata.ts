@@ -18,7 +18,13 @@ export function generateSEOMetadata(locale: Locale): Metadata {
   return {
     title: seo.title,
     description: seo.description,
-    robots: 'index, follow',
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
 
     // Viewport (not in Metadata, but we'll add it to layout)
 
@@ -61,7 +67,6 @@ export function generateSEOMetadata(locale: Locale): Metadata {
       icon: '/favicon.ico',
     },
 
-    // Additional meta
     other: {},
   }
 }
