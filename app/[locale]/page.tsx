@@ -31,6 +31,24 @@ export default async function Page({ params }: HomePageProps) {
 
   return (
     <>
+      <link
+        rel='preload'
+        as='image'
+        imageSrcSet='/images/sections/hero/bg-mob.webp 1x, /images/sections/hero/bg-mob@2x.webp 2x'
+        media='(max-width: 479px)'
+      />
+      <link
+        rel='preload'
+        as='image'
+        imageSrcSet='/images/sections/hero/bg-tabl.webp 1x, /images/sections/hero/bg-tabl@2x.webp 2x'
+        media='(min-width: 480px) and (max-width: 991px)'
+      />
+      <link
+        rel='preload'
+        as='image'
+        imageSrcSet='/images/sections/hero/bg-desc.webp 1x, /images/sections/hero/bg-desc@2x.webp 2x'
+        media='(min-width: 992px)'
+      />
       <LangSetter locale={locale} />
       <main>
         <HomePage locale={locale} />
