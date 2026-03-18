@@ -6,6 +6,7 @@ import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { AnalyticsPageView } from '@/components/AnalyticsPageView'
 import { GOOGLE_TAG_MANAGER_ID, isAnalyticsEnabled } from '@/constants/analytics'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { CookieConsent } from '@/components/CookieConsent'
 import { Suspense } from 'react'
 
 export const viewport: Viewport = {
@@ -28,6 +29,7 @@ export default function LocaleLayout({ children }: { children: React.ReactNode }
         )}
         <SpeedInsights />
         {children}
+        {isAnalyticsEnabled() && GOOGLE_TAG_MANAGER_ID && <CookieConsent />}
       </body>
     </html>
   )
