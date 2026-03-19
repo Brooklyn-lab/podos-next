@@ -1,11 +1,19 @@
-// Types for Google Analytics
 type GTMConfig = Record<string, string | number | boolean>
 type DataLayerEvent = Record<string, string | number | boolean>
 
-// Declare gtag function for TypeScript
+type ConsentParams = {
+  analytics_storage?: 'granted' | 'denied'
+  ad_storage?: 'granted' | 'denied'
+  ad_user_data?: 'granted' | 'denied'
+  ad_personalization?: 'granted' | 'denied'
+}
+
 declare global {
   interface Window {
-    gtag: (command: 'config' | 'event' | 'js' | 'set', targetId: string | Date, config?: GTMConfig) => void
+    gtag: {
+      (command: 'consent', action: 'default' | 'update', params: ConsentParams): void
+      (command: 'config' | 'event' | 'js' | 'set', targetId: string | Date, config?: GTMConfig): void
+    }
     dataLayer: DataLayerEvent[]
   }
 }

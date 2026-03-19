@@ -7,7 +7,23 @@ type GoogleAnalyticsProps = {
 export const GoogleAnalytics = ({ gtmId }: GoogleAnalyticsProps) => {
   return (
     <>
-      {/* Google Tag Manager Script */}
+      {/* GTM Consent Mode v2 — must fire before GTM container loads */}
+      <Script
+        id='gtm-consent-default'
+        strategy='beforeInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer=window.dataLayer||[];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent','default',{
+              analytics_storage:'denied',
+              ad_storage:'denied',
+              ad_user_data:'denied',
+              ad_personalization:'denied'
+            });
+          `,
+        }}
+      />
       <Script
         id='gtm-script'
         strategy='afterInteractive'
@@ -21,7 +37,6 @@ export const GoogleAnalytics = ({ gtmId }: GoogleAnalyticsProps) => {
           `,
         }}
       />
-      {/* Google Tag Manager (noscript) */}
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
