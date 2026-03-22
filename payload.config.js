@@ -8,6 +8,7 @@ import sharp from 'sharp'
 import { Services } from './src/payload/collections/Services.ts'
 import { Certificates } from './src/payload/globals/Certificates.ts'
 import { Works } from './src/payload/globals/Works.ts'
+import { Settings } from './src/payload/globals/Settings.ts'
 import { Media } from './src/payload/collections/Media.ts'
 
 const filename = fileURLToPath(import.meta.url)
@@ -39,7 +40,7 @@ export default buildConfig({
     graphQLPlayground: '/api/graphql-playground',
   },
 
-  globals: [Certificates, Works],
+  globals: [Certificates, Works, Settings],
 
   collections: [
     Services,

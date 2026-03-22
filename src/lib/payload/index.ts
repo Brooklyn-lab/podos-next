@@ -1,4 +1,4 @@
-export { getServices, getCertificates, getWorks } from './api'
+export { getServices, getCertificates, getWorks, getSettings } from './api'
 export type {
   CMSImage,
   MediaSize,
@@ -12,4 +12,8 @@ export type {
   WorksData,
   WorksGlobal,
   WorksLocaleText,
+  SocialMediaLink,
+  SettingsData,
+  SettingsGlobal,
+  SettingsAddressText,
 } from './types'

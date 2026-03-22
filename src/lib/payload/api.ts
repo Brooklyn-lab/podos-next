@@ -1,6 +1,14 @@
 import { type Locale } from '@/config/i18n'
 
-import type { CertificatesData, CertificatesGlobal, ServicesData, WorksData, WorksGlobal } from './types'
+import type {
+  CertificatesData,
+  CertificatesGlobal,
+  ServicesData,
+  SettingsData,
+  SettingsGlobal,
+  WorksData,
+  WorksGlobal,
+} from './types'
 
 const API_URL =
   process.env.NEXT_PUBLIC_SERVER_URL ||
@@ -66,6 +74,34 @@ export async function getCertificates(locale: Locale): Promise<CertificatesData 
     }
   } catch (error) {
     console.error('Error fetching certificates:', error)
+    return null
+  }
+}
+
+export async function getSettings(locale: Locale): Promise<SettingsData | null> {
+  try {
+    const res = await fetchWithTimeout(`${API_URL}/api/globals/settings?depth=1`, {
+      next: { revalidate: 60 },
+    })
+
+    if (!res.ok) return null
+
+    const data: SettingsGlobal = await res.json()
+    const addressText = data[locale]
+
+    if (!addressText?.address || !data.phone) return null
+
+    return {
+      phone: data.phone,
+      email: data.email,
+      socialMedia: data.socialMedia ?? [],
+      mapEmbedUrl: data.mapEmbedUrl ?? '',
+      mapLinkUrl: data.mapLinkUrl ?? '',
+      mapIcon: data.mapIcon ?? null,
+      ...addressText,
+    }
+  } catch (error) {
+    console.error('Error fetching settings:', error)
     return null
   }
 }

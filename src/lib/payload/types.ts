@@ -75,3 +75,37 @@ export type WorksGlobal = {
 export type WorksData = WorksLocaleText & {
   works: WorkItem[]
 }
+
+export type SocialMediaLink = {
+  platform: string
+  url: string
+  icon: CMSImage
+}
+
+export type SettingsAddressText = {
+  addressTitle: string
+  address: string
+  building?: string | null
+  additionalTitle?: string | null
+  additionalItems?: { text: string }[]
+}
+
+export type SettingsGlobal = {
+  phone: string
+  email: string
+  socialMedia: SocialMediaLink[]
+  mapEmbedUrl: string
+  mapLinkUrl: string
+  mapIcon?: CMSImage | null
+  pl: SettingsAddressText
+  ua: SettingsAddressText
+}
+
+export type SettingsData = {
+  phone: string
+  email: string
+  socialMedia: SocialMediaLink[]
+  mapEmbedUrl: string
+  mapLinkUrl: string
+  mapIcon?: CMSImage | null
+} & SettingsAddressText

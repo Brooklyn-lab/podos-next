@@ -5,11 +5,18 @@ import { Contacts } from '../Contacts'
 import styles from './DesktopNav.module.scss'
 import { Logo } from '@/components/Logo'
 
-type DesktopNavProps = {
-  locale: Locale
+type ContactItem = {
+  href: string
+  text: string
+  icon: string
 }
 
-export const DesktopNav = ({ locale }: DesktopNavProps) => {
+type DesktopNavProps = {
+  locale: Locale
+  contacts: Record<string, ContactItem> | null
+}
+
+export const DesktopNav = ({ locale, contacts }: DesktopNavProps) => {
   return (
     <div className={styles.desktopNav}>
       <Logo />
@@ -17,7 +24,7 @@ export const DesktopNav = ({ locale }: DesktopNavProps) => {
 
       <div className={styles.contacts}>
         <LangSwitcher locale={locale} />
-        <Contacts locale={locale} />
+        {contacts && <Contacts contacts={contacts} />}
       </div>
     </div>
   )

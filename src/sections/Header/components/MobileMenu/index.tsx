@@ -10,11 +10,18 @@ import { BurgerButton } from '@/components/BurgerButton'
 import { CloseButton } from '@/components/CloseButton'
 import styles from './MobileMenu.module.scss'
 
-type MobileMenuProps = {
-  locale: Locale
+type ContactItem = {
+  href: string
+  text: string
+  icon: string
 }
 
-export const MobileMenu = ({ locale }: MobileMenuProps) => {
+type MobileMenuProps = {
+  locale: Locale
+  contacts: Record<string, ContactItem> | null
+}
+
+export const MobileMenu = ({ locale, contacts }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -77,7 +84,7 @@ export const MobileMenu = ({ locale }: MobileMenuProps) => {
 
               <div className={styles.menuContacts}>
                 <LangSwitcher locale={locale} />
-                <Contacts locale={locale} isMobileStyle />
+                {contacts && <Contacts contacts={contacts} isMobileStyle />}
               </div>
             </div>
           </nav>
