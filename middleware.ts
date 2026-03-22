@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (pathname === '/') {
-    return NextResponse.redirect(new URL(`/${i18n.defaultLocale}`, request.url))
+    return NextResponse.redirect(new URL(`/${i18n.defaultLocale}`, request.url), 301)
   }
 
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
   )
 
   if (pathnameIsMissingLocale) {
-    return NextResponse.redirect(new URL(`/${i18n.defaultLocale}${pathname}`, request.url))
+    return NextResponse.redirect(new URL(`/${i18n.defaultLocale}${pathname}`, request.url), 301)
   }
 
   return NextResponse.next()

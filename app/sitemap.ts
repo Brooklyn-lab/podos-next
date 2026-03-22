@@ -1,26 +1,28 @@
 import type { MetadataRoute } from 'next'
 
 import { i18n } from '@/config/i18n'
+import { getLangCode } from '@/config/locales'
 import { SITE_URL } from '@/config/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const { locales } = i18n
   const now = new Date()
 
-  const localeEntries: MetadataRoute.Sitemap = locales.map((locale) => ({
+  const alternateLanguages = locales.reduce(
+    (acc, locale) => {
+      acc[getLangCode(locale)] = `${SITE_URL}/${locale}`
+      return acc
+    },
+    { 'x-default': `${SITE_URL}/${i18n.defaultLocale}` } as Record<string, string>
+  )
+
+  return locales.map((locale) => ({
     url: `${SITE_URL}/${locale}`,
     lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 1.0,
-  }))
-
-  return [
-    {
-      url: SITE_URL,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 1.0,
+    changeFrequency: 'weekly' as const,
+    priority: locale === i18n.defaultLocale ? 1.0 : 0.8,
+    alternates: {
+      languages: alternateLanguages,
     },
-    ...localeEntries,
-  ]
+  }))
 }

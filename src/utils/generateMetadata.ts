@@ -1,14 +1,13 @@
 import { Metadata } from 'next'
 import { Locale } from '@/config/i18n'
-import { localeCodes, defaultLocaleCode } from '@/config/locales'
+import { localeCodes, defaultLocaleCode, getLangCode } from '@/config/locales'
+import { SITE_URL } from '@/config/site'
 import { translations } from '@/translations'
-
-const SITE_URL = 'https://podoswroclaw.pl'
 
 function buildAlternateLanguages(): Record<string, string> {
   const langs: Record<string, string> = {}
   for (const code of localeCodes) {
-    langs[code] = `${SITE_URL}/${code}`
+    langs[getLangCode(code)] = `${SITE_URL}/${code}`
   }
   langs['x-default'] = `${SITE_URL}/${defaultLocaleCode}`
   return langs
