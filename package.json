@@ -16,6 +16,7 @@
     "@payloadcms/next": "^3.75.0",
     "@payloadcms/richtext-lexical": "^3.75.0",
     "@types/classnames": "^2.3.0",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^1.2.0",
     "classnames": "^2.5.1",
     "graphql": "^16.12.0",
