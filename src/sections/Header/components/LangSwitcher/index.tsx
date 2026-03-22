@@ -1,27 +1,13 @@
-import { type Locale } from '@/config/i18n'
-import plTranslations from '@/translations/pl/header.json'
-import uaTranslations from '@/translations/ua/header.json'
+import { localeRegistry } from '@/payload/locale-registry'
 import styles from './LangSwitcher.module.scss'
 import { SwitcherItem } from './SwitcherItem'
 
-const translations = {
-  pl: plTranslations,
-  ua: uaTranslations,
-} as const
-
-type LangSwitcherProps = {
-  locale: Locale
-}
-
-export const LangSwitcher = ({ locale }: LangSwitcherProps) => {
-  const t = translations[locale]
-  const languages = t.languages
-
+export const LangSwitcher = () => {
   return (
     <ul className={styles.list}>
-      {Object.entries(languages).map(([key, value]) => (
-        <SwitcherItem key={key} href={`/${key}`}>
-          {value}
+      {localeRegistry.map((l) => (
+        <SwitcherItem key={l.code} href={`/${l.code}`}>
+          {l.code.toUpperCase()}
         </SwitcherItem>
       ))}
     </ul>

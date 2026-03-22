@@ -83,7 +83,7 @@ export const MobileMenu = ({ locale, contacts }: MobileMenuProps) => {
               <NavList locale={locale} onItemClick={closeMenu} />
 
               <div className={styles.menuContacts}>
-                <LangSwitcher locale={locale} />
+                <LangSwitcher />
                 {contacts && <Contacts contacts={contacts} isMobileStyle />}
               </div>
             </div>

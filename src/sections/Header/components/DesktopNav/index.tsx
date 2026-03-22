@@ -23,7 +23,7 @@ export const DesktopNav = ({ locale, contacts }: DesktopNavProps) => {
       <NavList locale={locale} className={styles.nav} />
 
       <div className={styles.contacts}>
-        <LangSwitcher locale={locale} />
+        <LangSwitcher />
         {contacts && <Contacts contacts={contacts} />}
       </div>
     </div>

@@ -1,49 +1,6 @@
 import type { GlobalConfig } from 'payload'
 
-import { revalidateGlobalAfterChange } from '../hooks/revalidateContent'
-
-const localeAddressFields = (locale: string, label: string) => ({
-  name: locale,
-  type: 'group' as const,
-  label,
-  fields: [
-    {
-      name: 'addressTitle',
-      type: 'text' as const,
-      required: true,
-      label: 'Address Section Title',
-    },
-    {
-      name: 'address',
-      type: 'text' as const,
-      required: true,
-      label: 'Street Address',
-    },
-    {
-      name: 'building',
-      type: 'text' as const,
-      label: 'Building Details',
-    },
-    {
-      name: 'additionalTitle',
-      type: 'text' as const,
-      label: 'Additional Info Title',
-    },
-    {
-      name: 'additionalItems',
-      type: 'array' as const,
-      label: 'Additional Info Items',
-      labels: { singular: 'Item', plural: 'Items' },
-      fields: [
-        {
-          name: 'text',
-          type: 'text' as const,
-          required: true,
-        },
-      ],
-    },
-  ],
-})
+import { revalidateGlobalAfterChange } from '../hooks/revalidateContent.ts'
 
 export const Settings: GlobalConfig = {
   slug: 'settings',
@@ -138,12 +95,49 @@ export const Settings: GlobalConfig = {
           ],
         },
         {
-          label: 'Address — Polski',
-          fields: [localeAddressFields('pl', 'Polish Address')],
-        },
-        {
-          label: 'Address — Українська',
-          fields: [localeAddressFields('ua', 'Ukrainian Address')],
+          label: 'Address',
+          fields: [
+            {
+              name: 'addressTitle',
+              type: 'text',
+              required: true,
+              localized: true,
+              label: 'Address Section Title',
+            },
+            {
+              name: 'address',
+              type: 'text',
+              required: true,
+              localized: true,
+              label: 'Street Address',
+            },
+            {
+              name: 'building',
+              type: 'text',
+              localized: true,
+              label: 'Building Details',
+            },
+            {
+              name: 'additionalTitle',
+              type: 'text',
+              localized: true,
+              label: 'Additional Info Title',
+            },
+            {
+              name: 'additionalItems',
+              type: 'array',
+              localized: true,
+              label: 'Additional Info Items',
+              labels: { singular: 'Item', plural: 'Items' },
+              fields: [
+                {
+                  name: 'text',
+                  type: 'text',
+                  required: true,
+                },
+              ],
+            },
+          ],
         },
       ],
     },

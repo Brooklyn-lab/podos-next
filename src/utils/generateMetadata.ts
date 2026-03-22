@@ -1,17 +1,21 @@
 import { Metadata } from 'next'
 import { Locale } from '@/config/i18n'
-import plSeo from '@/translations/pl/seo.json'
-import uaSeo from '@/translations/ua/seo.json'
-
-const seoTranslations = {
-  pl: plSeo,
-  ua: uaSeo,
-} as const
+import { localeCodes, defaultLocaleCode } from '@/config/locales'
+import { translations } from '@/translations'
 
 const SITE_URL = 'https://podoswroclaw.pl'
 
+function buildAlternateLanguages(): Record<string, string> {
+  const langs: Record<string, string> = {}
+  for (const code of localeCodes) {
+    langs[code] = `${SITE_URL}/${code}`
+  }
+  langs['x-default'] = `${SITE_URL}/${defaultLocaleCode}`
+  return langs
+}
+
 export function generateSEOMetadata(locale: Locale): Metadata {
-  const seo = seoTranslations[locale]
+  const seo = translations[locale].seo
   const currentUrl = `${SITE_URL}/${locale}`
   const ogImageUrl = `${SITE_URL}/images/og-image.jpg`
 
@@ -26,19 +30,11 @@ export function generateSEOMetadata(locale: Locale): Metadata {
       'max-video-preview': -1,
     },
 
-    // Viewport (not in Metadata, but we'll add it to layout)
-
-    // Canonical
     alternates: {
       canonical: currentUrl,
-      languages: {
-        pl: `${SITE_URL}/pl`,
-        uk: `${SITE_URL}/ua`,
-        'x-default': `${SITE_URL}/pl`,
-      },
+      languages: buildAlternateLanguages(),
     },
 
-    // Open Graph
     openGraph: {
       type: 'website',
       url: currentUrl,
@@ -54,7 +50,6 @@ export function generateSEOMetadata(locale: Locale): Metadata {
       ],
     },
 
-    // Twitter
     twitter: {
       card: 'summary_large_image',
       title: seo.twitter.title,
@@ -62,7 +57,6 @@ export function generateSEOMetadata(locale: Locale): Metadata {
       images: [ogImageUrl],
     },
 
-    // Icons
     icons: {
       icon: '/favicon.ico',
     },
@@ -72,7 +66,7 @@ export function generateSEOMetadata(locale: Locale): Metadata {
 }
 
 export function generateSchemaJSON(locale: Locale) {
-  const seo = seoTranslations[locale]
+  const seo = translations[locale].seo
   const currentUrl = `${SITE_URL}/${locale}`
 
   return {
@@ -106,7 +100,7 @@ export function generateSchemaJSON(locale: Locale) {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: locale === 'pl' ? 'Usługi podologiczne' : 'Подологічні послуги',
+            name: translations[locale].seo.schema.serviceName,
           },
         },
       ],
