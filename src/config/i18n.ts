@@ -1,6 +1,8 @@
-export const i18n = {
-  locales: ['pl', 'ua'],
-  defaultLocale: 'pl',
-} as const
+import { localeCodes, defaultLocaleCode, type LocaleCode } from './locales'
 
-export type Locale = (typeof i18n)['locales'][number]
+export const i18n = {
+  locales: localeCodes,
+  defaultLocale: defaultLocaleCode,
+}
+
+export type Locale = LocaleCode

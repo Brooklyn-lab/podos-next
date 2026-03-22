@@ -8,13 +8,24 @@ import sharp from 'sharp'
 import { Services } from './src/payload/collections/Services.ts'
 import { Certificates } from './src/payload/globals/Certificates.ts'
 import { Works } from './src/payload/globals/Works.ts'
+import { Settings } from './src/payload/globals/Settings.ts'
 import { Media } from './src/payload/collections/Media.ts'
+import { localeRegistry, defaultLocaleCode } from './src/payload/locale-registry.ts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+
+  localization: {
+    locales: localeRegistry.map((l) => ({
+      label: l.nativeLabel,
+      code: l.code,
+    })),
+    defaultLocale: defaultLocaleCode,
+    fallback: true,
+  },
 
   admin: {
     user: 'users',
@@ -39,7 +50,7 @@ export default buildConfig({
     graphQLPlayground: '/api/graphql-playground',
   },
 
-  globals: [Certificates, Works],
+  globals: [Certificates, Works, Settings],
 
   collections: [
     Services,

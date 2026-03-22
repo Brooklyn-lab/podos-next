@@ -11,6 +11,7 @@
   },
   "schema": {
     "name": "PodOS",
-    "description": "PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia."
+    "description": "PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia.",
+    "serviceName": "Usługi podologiczne"
   }
 }

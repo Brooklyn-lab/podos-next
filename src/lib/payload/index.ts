@@ -1,15 +1,12 @@
-export { getServices, getCertificates, getWorks } from './api'
+export { getServices, getCertificates, getWorks, getSettings } from './api'
 export type {
-  CMSImage,
-  MediaSize,
-  ServiceItem,
   ServicesData,
-  CertificateItem,
+  ServiceItem,
   CertificatesData,
-  CertificatesGlobal,
-  CertificatesLocaleText,
-  WorkItem,
+  CertificateItem,
   WorksData,
-  WorksGlobal,
-  WorksLocaleText,
+  WorkItem,
+  SettingsData,
+  SocialMediaLink,
+  CMSImage,
 } from './types'

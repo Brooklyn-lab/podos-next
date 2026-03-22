@@ -1,26 +1,6 @@
 import type { GlobalConfig } from 'payload'
 
-import { revalidateGlobalAfterChange } from '../hooks/revalidateContent'
-
-const localeTextFields = (locale: string, label: string) => ({
-  name: locale,
-  type: 'group' as const,
-  label,
-  fields: [
-    {
-      name: 'title',
-      type: 'text' as const,
-      required: true,
-      label: 'Section Title',
-    },
-    {
-      name: 'description',
-      type: 'textarea' as const,
-      required: true,
-      label: 'Description',
-    },
-  ],
-})
+import { revalidateGlobalAfterChange } from '../hooks/revalidateContent.ts'
 
 export const Certificates: GlobalConfig = {
   slug: 'certificates',
@@ -38,12 +18,23 @@ export const Certificates: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Polski',
-          fields: [localeTextFields('pl', 'Polish Content')],
-        },
-        {
-          label: 'Українська',
-          fields: [localeTextFields('ua', 'Ukrainian Content')],
+          label: 'Content',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+              localized: true,
+              label: 'Section Title',
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              required: true,
+              localized: true,
+              label: 'Description',
+            },
+          ],
         },
         {
           label: 'Certificates',
