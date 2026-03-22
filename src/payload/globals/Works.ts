@@ -1,31 +1,6 @@
 import type { GlobalConfig } from 'payload'
 
-import { revalidateGlobalAfterChange } from '../hooks/revalidateContent'
-
-const localeTextFields = (locale: string, label: string) => ({
-  name: locale,
-  type: 'group' as const,
-  label,
-  fields: [
-    {
-      name: 'title',
-      type: 'text' as const,
-      required: true,
-      label: 'Section Title',
-    },
-    {
-      name: 'description',
-      type: 'textarea' as const,
-      required: true,
-      label: 'Description',
-    },
-    {
-      name: 'headerParagraph1',
-      type: 'textarea' as const,
-      label: 'Paragraph',
-    },
-  ],
-})
+import { revalidateGlobalAfterChange } from '../hooks/revalidateContent.ts'
 
 export const Works: GlobalConfig = {
   slug: 'works',
@@ -43,12 +18,29 @@ export const Works: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Polski',
-          fields: [localeTextFields('pl', 'Polish Content')],
-        },
-        {
-          label: 'Українська',
-          fields: [localeTextFields('ua', 'Ukrainian Content')],
+          label: 'Content',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+              localized: true,
+              label: 'Section Title',
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              required: true,
+              localized: true,
+              label: 'Description',
+            },
+            {
+              name: 'headerParagraph1',
+              type: 'textarea',
+              localized: true,
+              label: 'Paragraph',
+            },
+          ],
         },
         {
           label: 'Images',

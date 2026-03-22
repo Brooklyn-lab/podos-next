@@ -1,12 +1,12 @@
 import type { CollectionConfig } from 'payload'
 
-import { revalidateAfterChange } from '../hooks/revalidateContent'
+import { revalidateAfterChange } from '../hooks/revalidateContent.ts'
 
 export const Services: CollectionConfig = {
   slug: 'services',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'locale', 'updatedAt'],
+    defaultColumns: ['title', 'updatedAt'],
     group: 'Content',
   },
   access: {
@@ -17,38 +17,29 @@ export const Services: CollectionConfig = {
   },
   fields: [
     {
-      name: 'locale',
-      type: 'select',
-      required: true,
-      defaultValue: 'ua',
-      options: [
-        { label: 'Ukrainian', value: 'ua' },
-        { label: 'Polish', value: 'pl' },
-      ],
-      admin: {
-        position: 'sidebar',
-      },
-    },
-    {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
       label: 'Section Title',
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
       label: 'Description',
     },
     {
       name: 'headerParagraph1',
       type: 'textarea',
+      localized: true,
       label: 'Paragraph 1',
     },
     {
       name: 'headerParagraph2',
       type: 'textarea',
+      localized: true,
       label: 'Paragraph 2',
     },
     {
@@ -64,6 +55,7 @@ export const Services: CollectionConfig = {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
           label: 'Service Name',
         },
         {
@@ -73,6 +65,7 @@ export const Services: CollectionConfig = {
               name: 'price',
               type: 'text',
               required: true,
+              localized: true,
               label: 'Price',
               admin: {
                 width: '33%',
@@ -81,6 +74,7 @@ export const Services: CollectionConfig = {
             {
               name: 'duration',
               type: 'text',
+              localized: true,
               label: 'Duration',
               admin: {
                 width: '33%',
@@ -91,6 +85,7 @@ export const Services: CollectionConfig = {
         {
           name: 'treatment',
           type: 'textarea',
+          localized: true,
           label: 'Treatment Description',
         },
       ],

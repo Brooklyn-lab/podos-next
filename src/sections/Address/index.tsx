@@ -1,31 +1,45 @@
 import { Container } from '@/components/Container'
 import styles from './Address.module.scss'
 import { Map } from './components/Map'
-
-import plTranslations from '@/translations/pl/address.json'
-import uaTranslations from '@/translations/ua/address.json'
 import { type Locale } from '@/config/i18n'
 import { HeaderContent } from './components/HeaderContent'
 import { SocialMedia } from './components/SocialMedia'
-
-const translations = {
-  pl: plTranslations,
-  ua: uaTranslations,
-} as const
+import { getSettings } from '@/lib/payload'
 
 type AddressSectionProps = {
   locale: Locale
 }
 
-export const AddressSection = ({ locale }: AddressSectionProps) => {
-  const t = translations[locale]
+export const AddressSection = async ({ locale }: AddressSectionProps) => {
+  const settings = await getSettings(locale)
+
+  if (!settings) return null
+
+  const addressData = {
+    title: settings.addressTitle,
+    address: settings.address,
+    building: settings.building ?? '',
+    additional: {
+      title: settings.additionalTitle ?? '',
+      items: settings.additionalItems?.map((i) => i.text) ?? [],
+    },
+  }
+
+  const socialMediaItems =
+    settings.socialMedia?.map((s) => ({
+      href: s.url,
+      iconUrl: s.icon?.url ?? '',
+      alt: s.platform,
+    })) ?? []
+
+  const mapIconUrl = settings.mapIcon?.url ?? ''
 
   return (
     <section className={styles.address} id='address'>
       <Container className={styles.container}>
-        <HeaderContent locale={locale} />
-        <Map mapUrl={t.mapUrl} />
-        <SocialMedia locale={locale} />
+        <HeaderContent data={addressData} />
+        <Map mapUrl={settings.mapEmbedUrl} />
+        <SocialMedia items={socialMediaItems} mapLinkUrl={settings.mapLinkUrl} mapIconUrl={mapIconUrl} />
       </Container>
     </section>
   )
