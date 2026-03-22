@@ -35,6 +35,7 @@ export const AboutSection = ({ locale }: AboutSectionProps) => {
             alt={t.alt}
             width={590}
             height={700}
+            sizes='(max-width: 991px) calc(100vw - 40px), 590px'
             className={styles.contentImage}
           />
         </div>
