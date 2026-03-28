@@ -5,7 +5,6 @@ import plFooter from './pl/footer.json'
 import plForm from './pl/form.json'
 import plHeader from './pl/header.json'
 import plHero from './pl/hero.json'
-import plSeo from './pl/seo.json'
 import plWhyUs from './pl/why-us.json'
 
 import uaAbout from './ua/about.json'
@@ -15,7 +14,6 @@ import uaFooter from './ua/footer.json'
 import uaForm from './ua/form.json'
 import uaHeader from './ua/header.json'
 import uaHero from './ua/hero.json'
-import uaSeo from './ua/seo.json'
 import uaWhyUs from './ua/why-us.json'
 
 export const translations = {
@@ -27,7 +25,6 @@ export const translations = {
     form: plForm,
     header: plHeader,
     hero: plHero,
-    seo: plSeo,
     'why-us': plWhyUs,
   },
   ua: {
@@ -38,7 +35,6 @@ export const translations = {
     form: uaForm,
     header: uaHeader,
     hero: uaHero,
-    seo: uaSeo,
     'why-us': uaWhyUs,
   },
 } as const

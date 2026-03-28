@@ -23,7 +23,7 @@ type HomePageProps = {
 
 export default async function Page({ params }: HomePageProps) {
   const { locale } = await params
-  const schemaData = generateSchemaJSON(locale)
+  const schemaData = await generateSchemaJSON(locale)
 
   prefetchDNS('//www.googletagmanager.com')
   prefetchDNS('//fonts.googleapis.com')

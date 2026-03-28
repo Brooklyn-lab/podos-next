@@ -9,6 +9,7 @@ import { Services } from './src/payload/collections/Services.ts'
 import { Certificates } from './src/payload/globals/Certificates.ts'
 import { Works } from './src/payload/globals/Works.ts'
 import { Settings } from './src/payload/globals/Settings.ts'
+import { SEO } from './src/payload/globals/SEO.ts'
 import { Media } from './src/payload/collections/Media.ts'
 import { localeRegistry, defaultLocaleCode } from './src/payload/locale-registry.ts'
 
@@ -50,7 +51,7 @@ export default buildConfig({
     graphQLPlayground: '/api/graphql-playground',
   },
 
-  globals: [Certificates, Works, Settings],
+  globals: [Certificates, Works, Settings, SEO],
 
   collections: [
     Services,

@@ -1,4 +1,4 @@
-export { getServices, getCertificates, getWorks, getSettings } from './api'
+export { getServices, getCertificates, getWorks, getSettings, getSEO } from './api'
 export type {
   ServicesData,
   ServiceItem,
@@ -8,5 +8,6 @@ export type {
   WorkItem,
   SettingsData,
   SocialMediaLink,
+  SEOData,
   CMSImage,
 } from './types'

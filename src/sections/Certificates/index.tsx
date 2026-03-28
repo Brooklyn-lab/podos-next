@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic'
 import { Container } from '@/components/Container'
 import styles from './Certificates.module.scss'
 import { Locale } from '@/config/i18n'
 import { getCertificates, type CertificateItem } from '@/lib/payload'
-import { CertificatesList } from './components/CertificatesList'
 import { HeaderContent } from './components/HeaderContent'
+
+const CertificatesList = dynamic(() => import('./components/CertificatesList').then((m) => m.CertificatesList))
 
 type CertificatesSectionProps = {
   locale: Locale
