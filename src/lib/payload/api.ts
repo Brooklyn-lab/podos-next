@@ -1,6 +1,6 @@
 import { type Locale } from '@/config/i18n'
 
-import type { CertificatesData, ServicesData, SettingsData, WorksData } from './types'
+import type { CertificatesData, SEOData, ServicesData, SettingsData, WorksData } from './types'
 
 const API_URL =
   process.env.NEXT_PUBLIC_SERVER_URL ||
@@ -107,6 +107,24 @@ export async function getWorks(locale: Locale): Promise<WorksData | null> {
     return data
   } catch (error) {
     console.error('Error fetching works:', error)
+    return null
+  }
+}
+
+export async function getSEO(locale: Locale): Promise<SEOData | null> {
+  try {
+    const res = await fetchWithTimeout(`${API_URL}/api/globals/seo?locale=${locale}&depth=1`, {
+      next: { revalidate: 60 },
+    })
+
+    if (!res.ok) return null
+
+    const data: SEOData = await res.json()
+    if (!data.title) return null
+
+    return data
+  } catch (error) {
+    console.error('Error fetching SEO:', error)
     return null
   }
 }
