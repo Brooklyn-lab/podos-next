@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic'
 import { Locale } from '@/config/i18n'
 import styles from './ContactForm.module.scss'
 import { Paragraph } from '@/components/TextContent/Paragraph'
 import plTranslations from '@/translations/pl/footer.json'
 import uaTranslations from '@/translations/ua/footer.json'
 import { HeaderContent } from '@/components/TextContent/HeaderContent'
-import { ContactFormClient } from './ContactForm.client'
+
+const ContactFormClient = dynamic(() => import('./ContactForm.client').then((m) => m.ContactFormClient))
 
 const translations = {
   pl: plTranslations,

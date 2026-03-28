@@ -3,7 +3,6 @@
 import { Form } from '@/components/Form'
 import { Locale } from '@/config/i18n'
 import { useState } from 'react'
-import { FieldValues } from 'react-hook-form'
 import { Notification } from '@/components/Notification'
 import { analytics } from '@/utils/analytics'
 import plTranslations from '@/translations/pl/form.json'
@@ -30,11 +29,11 @@ export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
   const [showNotification, setShowNotification] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  const onSubmit = async (data: FieldValues, reset: () => void) => {
+  const onSubmit = async (data: Record<string, string>, reset: () => void) => {
     try {
       const formData = new FormData()
       Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value as string)
+        formData.append(key, value)
       })
 
       formData.append('access_key', API_KEY)
@@ -49,7 +48,6 @@ export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
         setShowNotification(true)
         reset()
 
-        // Track successful form submission
         analytics.trackFormSubmission('contact_form', true)
       } else {
         throw new Error('Form submission failed')
