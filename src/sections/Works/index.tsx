@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic'
 import { Container } from '@/components/Container'
 import { Locale } from '@/config/i18n'
 import { getWorks, type WorkItem } from '@/lib/payload'
 import { HeaderContent } from './components/HeaderContent'
-import { WorksList } from './components/WorksList'
 import styles from './Works.module.scss'
+
+const WorksList = dynamic(() => import('./components/WorksList').then((m) => m.WorksList))
 
 type WorksSectionProps = {
   locale: Locale
