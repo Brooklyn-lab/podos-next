@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { Locale } from '@/config/i18n'
 import { localeCodes, defaultLocaleCode, getLangCode } from '@/config/locales'
 import { SITE_URL } from '@/config/site'
-import { translations } from '@/translations'
+import { getSEO, type SEOData } from '@/lib/payload'
 
 function buildAlternateLanguages(): Record<string, string> {
   const langs: Record<string, string> = {}
@@ -13,10 +13,29 @@ function buildAlternateLanguages(): Record<string, string> {
   return langs
 }
 
-export function generateSEOMetadata(locale: Locale): Metadata {
-  const seo = translations[locale].seo
+const FALLBACK_SEO: Record<string, SEOData> = {
+  pl: {
+    title: 'PodOS Gabinet Podologiczny Wrocław – zdrowe stopy - łatwe chodzenie.',
+    description:
+      'PodOS - to miejsce, w którym dbałość o zdrowie i estetykę stóp łączy się z profesjonalizmem i nowoczesnymi metodami leczenia.',
+    schemaName: 'PodOS',
+    schemaServiceName: 'Usługi podologiczne',
+  },
+  ua: {
+    title: 'PodOS Кабінет Подологічний (Вроцлав) – здорові стопи - легка хода.',
+    description:
+      "PodOS - це місце, де турбота про здоров'я та естетику ніг поєднується з професіоналізмом та сучасними методами лікування.",
+    schemaName: 'PodOS',
+    schemaServiceName: 'Подологічні послуги',
+  },
+}
+
+export async function generateSEOMetadata(locale: Locale): Promise<Metadata> {
+  const seo = (await getSEO(locale)) ?? FALLBACK_SEO[locale] ?? FALLBACK_SEO.pl
   const currentUrl = `${SITE_URL}/${locale}`
-  const ogImageUrl = `${SITE_URL}/images/og-image.jpg`
+
+  const ogImageUrl =
+    typeof seo.ogImage === 'object' && seo.ogImage?.url ? seo.ogImage.url : `${SITE_URL}/images/og-image.jpg`
 
   return {
     title: seo.title,
@@ -37,22 +56,22 @@ export function generateSEOMetadata(locale: Locale): Metadata {
     openGraph: {
       type: 'website',
       url: currentUrl,
-      title: seo.og.title,
-      description: seo.og.description,
+      title: seo.ogTitle || seo.title,
+      description: seo.ogDescription || seo.description,
       images: [
         {
           url: ogImageUrl,
-          width: 300,
-          height: 300,
-          type: 'image/jpg',
+          width: 1024,
+          height: 537,
+          type: 'image/jpeg',
         },
       ],
     },
 
     twitter: {
       card: 'summary_large_image',
-      title: seo.twitter.title,
-      description: seo.twitter.description,
+      title: seo.twitterTitle || seo.title,
+      description: seo.twitterDescription || seo.description,
       images: [ogImageUrl],
     },
 
@@ -64,17 +83,17 @@ export function generateSEOMetadata(locale: Locale): Metadata {
   }
 }
 
-export function generateSchemaJSON(locale: Locale) {
-  const seo = translations[locale].seo
+export async function generateSchemaJSON(locale: Locale) {
+  const seo = (await getSEO(locale)) ?? FALLBACK_SEO[locale] ?? FALLBACK_SEO.pl
   const currentUrl = `${SITE_URL}/${locale}`
 
   return {
     '@context': 'https://schema.org/',
     '@type': ['MedicalBusiness', 'HealthAndBeautyBusiness', 'LocalBusiness'],
-    name: seo.schema.name,
+    name: seo.schemaName || 'PodOS',
     alternateName: 'podoswroclaw.pl',
     url: currentUrl,
-    description: seo.schema.description,
+    description: seo.schemaDescription || seo.description,
     image: `${SITE_URL}/images/og-image.jpg`,
     address: {
       '@type': 'PostalAddress',
@@ -99,7 +118,7 @@ export function generateSchemaJSON(locale: Locale) {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: translations[locale].seo.schema.serviceName,
+            name: seo.schemaServiceName || 'Podiatric Services',
           },
         },
       ],

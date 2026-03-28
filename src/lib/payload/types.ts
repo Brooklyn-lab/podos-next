@@ -77,3 +77,16 @@ export type SettingsData = {
   additionalTitle?: string | null
   additionalItems?: { text: string }[]
 }
+
+export type SEOData = {
+  title: string
+  description: string
+  ogTitle?: string | null
+  ogDescription?: string | null
+  ogImage?: CMSImage | null
+  twitterTitle?: string | null
+  twitterDescription?: string | null
+  schemaName?: string | null
+  schemaDescription?: string | null
+  schemaServiceName?: string | null
+}
