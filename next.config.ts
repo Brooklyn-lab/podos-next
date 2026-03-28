@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   generateEtags: false,
   experimental: {
+    inlineCss: true,
     optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights'],
   },
   async headers() {
