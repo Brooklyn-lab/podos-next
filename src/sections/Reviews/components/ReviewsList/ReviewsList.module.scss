@@ -1,0 +1,7 @@
+.slider {
+  margin-top: 24px;
+
+  :global(.swiper-slide) {
+    height: auto;
+  }
+}

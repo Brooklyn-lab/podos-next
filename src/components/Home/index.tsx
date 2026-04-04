@@ -5,6 +5,7 @@ import { WhyUsSection } from '@/sections/WhyUs'
 import { HeroSection } from '@/sections/Hero'
 import { ServicesSection } from '@/sections/Services'
 import { CertificatesSection } from '@/sections/Certificates'
+import { ReviewsSection } from '@/sections/Reviews'
 import { WorksSection } from '@/sections/Works'
 import { Footer } from '@/sections/Footer'
 import { Header } from '@/sections/Header'
@@ -23,6 +24,7 @@ export const Home = ({ locale }: HomeProps) => {
       <CertificatesSection locale={locale} />
       <ServicesSection locale={locale} />
       <AddressSection locale={locale} />
+      <ReviewsSection locale={locale} />
       <WorksSection locale={locale} />
       <Footer locale={locale} />
     </>

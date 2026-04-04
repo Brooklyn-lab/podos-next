@@ -1,11 +1,11 @@
 import { type Locale } from '@/config/i18n'
 
-import type { CertificatesData, SEOData, ServicesData, SettingsData, WorksData } from './types'
+import type { CertificatesData, ReviewItem, SEOData, ServicesData, SettingsData, WorksData } from './types'
 
 const API_URL =
   process.env.NEXT_PUBLIC_SERVER_URL ||
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
-const FETCH_TIMEOUT_MS = 5000
+const FETCH_TIMEOUT_MS = process.env.NODE_ENV === 'development' ? 15000 : 5000
 const BYPASS_SECRET = process.env.VERCEL_AUTOMATION_BYPASS_SECRET
 
 function buildHeaders(): HeadersInit {
@@ -108,6 +108,24 @@ export async function getWorks(locale: Locale): Promise<WorksData | null> {
   } catch (error) {
     console.error('Error fetching works:', error)
     return null
+  }
+}
+
+export async function getReviews(): Promise<ReviewItem[]> {
+  try {
+    const res = await fetchWithTimeout(`${API_URL}/api/reviews?sort=-reviewDate&limit=20&depth=0`, {
+      next: { revalidate: 60 },
+    })
+
+    if (!res.ok) return []
+
+    const data = await res.json()
+    if (!data.docs || data.docs.length === 0) return []
+
+    return data.docs
+  } catch (error) {
+    console.error('Error fetching reviews:', error)
+    return []
   }
 }
 

@@ -1,0 +1,105 @@
+@use '@/styles/abstracts' as *;
+
+.reviews {
+  padding: 50px 0;
+
+  @include tablet-max {
+    padding: 20px 0;
+  }
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.booksyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-accent-primary;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+  padding-bottom: 4px;
+
+  &:hover {
+    color: $color-accent-tertiary;
+  }
+}
+
+.linkRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// --- Skeleton ---
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+%bone {
+  background: linear-gradient(90deg, $color-bg-tertiary 25%, $color-bg-quaternary 50%, $color-bg-tertiary 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+.skeletonHeader {
+  max-width: 500px;
+  margin-bottom: 24px;
+}
+
+.skeletonTitle {
+  @extend %bone;
+  width: 120px;
+  height: 14px;
+  margin-bottom: 16px;
+}
+
+.skeletonLine {
+  @extend %bone;
+  height: 14px;
+  margin-bottom: 8px;
+
+  &:nth-child(2) {
+    width: 100%;
+  }
+
+  &:nth-child(3) {
+    width: 70%;
+  }
+}
+
+.skeletonGrid {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.skeletonCard {
+  @extend %bone;
+  flex-shrink: 0;
+  width: calc(33.333% - 11px);
+  height: 220px;
+  border-radius: 12px;
+
+  @include tablet-max {
+    width: 280px;
+  }
+
+  @include mobile {
+    width: 240px;
+  }
+}
