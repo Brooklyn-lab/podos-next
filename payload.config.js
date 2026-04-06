@@ -5,6 +5,7 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+import { Reviews } from './src/payload/collections/Reviews.ts'
 import { Services } from './src/payload/collections/Services.ts'
 import { Certificates } from './src/payload/globals/Certificates.ts'
 import { Works } from './src/payload/globals/Works.ts'
@@ -55,6 +56,7 @@ export default buildConfig({
 
   collections: [
     Services,
+    Reviews,
     Media,
     {
       slug: 'users',
