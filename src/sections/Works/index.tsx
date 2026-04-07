@@ -5,7 +5,17 @@ import { getWorks, type WorkItem } from '@/lib/payload'
 import { HeaderContent } from './components/HeaderContent'
 import styles from './Works.module.scss'
 
-const WorksList = dynamic(() => import('./components/WorksList').then((m) => m.WorksList))
+const WorksSliderSkeleton = () => (
+  <div className={styles.skeletonGrid}>
+    {Array.from({ length: 4 }, (_, i) => (
+      <div key={i} className={styles.skeletonCard} />
+    ))}
+  </div>
+)
+
+const WorksList = dynamic(() => import('./components/WorksList').then((m) => m.WorksList), {
+  loading: () => <WorksSliderSkeleton />,
+})
 
 type WorksSectionProps = {
   locale: Locale

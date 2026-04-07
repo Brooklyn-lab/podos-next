@@ -1,5 +1,6 @@
 import { Slider } from '@/components/Slider'
 import { WorkItem } from '../WorkItem'
+import styles from './WorksList.module.scss'
 
 export type Work = {
   image: {
@@ -19,6 +20,7 @@ type WorksListProps = {
 export const WorksList = ({ works }: WorksListProps) => {
   return (
     <Slider
+      className={styles.slider}
       spaceBetween={12}
       slidesPerView={3.5}
       breakpoints={{
