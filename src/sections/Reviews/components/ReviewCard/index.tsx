@@ -39,6 +39,8 @@ export const ReviewCard = ({
         </div>
       </div>
 
+      {isVerified && <span className={styles.verified}>{verifiedLabel}</span>}
+
       <div className={styles.stars} aria-label={`${rating} out of 5 stars`}>
         {Array.from({ length: 5 }, (_, i) => (
           <svg
@@ -62,7 +64,6 @@ export const ReviewCard = ({
             {serviceLabel}: {service}
           </span>
         )}
-        {isVerified && <span className={styles.verified}>{verifiedLabel}</span>}
       </div>
     </article>
   )

@@ -4,15 +4,18 @@
   padding: 50px 0;
 
   @include tablet-max {
-    padding: 20px 0;
+    padding: 32px 0;
   }
 }
 
 .headerRow {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 16px;
+  max-width: $container-tablet-width;
+  margin-inline: auto;
 }
 
 .booksyLink {
@@ -84,22 +87,34 @@
 
 .skeletonGrid {
   display: flex;
-  gap: 16px;
   overflow: hidden;
 }
 
 .skeletonCard {
   @extend %bone;
   flex-shrink: 0;
-  width: calc(33.333% - 11px);
-  height: 220px;
+  margin-right: 16px;
+  height: 284px;
   border-radius: 12px;
+  width: calc((100% - 0.8px) / 1.05);
 
-  @include tablet-max {
-    width: 280px;
+  @media (min-width: 420px) {
+    width: calc((100% - 4.8px) / 1.3);
   }
 
-  @include mobile {
-    width: 240px;
+  @media (min-width: 568px) {
+    width: calc((100% - 12.8px) / 1.8);
+  }
+
+  @media (min-width: 768px) {
+    width: calc((100% - 22.4px) / 2.4);
+  }
+
+  @media (min-width: 992px) {
+    width: calc((100% - 32px) / 3);
+  }
+
+  @media (min-width: 1200px) {
+    width: calc((100% - 38.4px) / 3.4);
   }
 }

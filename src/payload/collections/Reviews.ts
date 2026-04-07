@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { revalidateAfterChange } from '../hooks/revalidateContent.ts'
-import { syncBooksyReviews } from '../endpoints/syncBooksyReviews.ts'
+import { syncBooksyReviews, resyncAllReviews } from '../endpoints/syncBooksyReviews.ts'
 
 export const Reviews: CollectionConfig = {
   slug: 'reviews',
@@ -24,6 +24,11 @@ export const Reviews: CollectionConfig = {
       path: '/sync-booksy',
       method: 'post',
       handler: syncBooksyReviews,
+    },
+    {
+      path: '/resync-all',
+      method: 'post',
+      handler: resyncAllReviews,
     },
   ],
   fields: [

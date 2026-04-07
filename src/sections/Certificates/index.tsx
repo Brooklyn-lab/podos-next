@@ -5,7 +5,17 @@ import { Locale } from '@/config/i18n'
 import { getCertificates, type CertificateItem } from '@/lib/payload'
 import { HeaderContent } from './components/HeaderContent'
 
-const CertificatesList = dynamic(() => import('./components/CertificatesList').then((m) => m.CertificatesList))
+const CertificatesSliderSkeleton = () => (
+  <div className={styles.skeletonGrid}>
+    {Array.from({ length: 5 }, (_, i) => (
+      <div key={i} className={styles.skeletonCard} />
+    ))}
+  </div>
+)
+
+const CertificatesList = dynamic(() => import('./components/CertificatesList').then((m) => m.CertificatesList), {
+  loading: () => <CertificatesSliderSkeleton />,
+})
 
 type CertificatesSectionProps = {
   locale: Locale
@@ -22,7 +32,7 @@ const CertificatesSkeleton = () => (
         <div className={styles.skeletonLine} />
       </div>
       <div className={styles.skeletonGrid}>
-        {Array.from({ length: 4 }, (_, i) => (
+        {Array.from({ length: 5 }, (_, i) => (
           <div key={i} className={styles.skeletonCard} />
         ))}
       </div>

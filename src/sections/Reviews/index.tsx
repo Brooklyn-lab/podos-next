@@ -7,7 +7,17 @@ import plTranslations from '@/translations/pl/reviews.json'
 import uaTranslations from '@/translations/ua/reviews.json'
 import styles from './Reviews.module.scss'
 
-const ReviewsList = dynamic(() => import('./components/ReviewsList').then((m) => m.ReviewsList))
+const ReviewsSliderSkeleton = () => (
+  <div className={styles.skeletonGrid}>
+    {Array.from({ length: 4 }, (_, i) => (
+      <div key={i} className={styles.skeletonCard} />
+    ))}
+  </div>
+)
+
+const ReviewsList = dynamic(() => import('./components/ReviewsList').then((m) => m.ReviewsList), {
+  loading: () => <ReviewsSliderSkeleton />,
+})
 
 const translations = {
   pl: plTranslations,
@@ -29,7 +39,7 @@ const ReviewsSkeleton = () => (
         <div className={styles.skeletonLine} />
       </div>
       <div className={styles.skeletonGrid}>
-        {Array.from({ length: 3 }, (_, i) => (
+        {Array.from({ length: 4 }, (_, i) => (
           <div key={i} className={styles.skeletonCard} />
         ))}
       </div>
