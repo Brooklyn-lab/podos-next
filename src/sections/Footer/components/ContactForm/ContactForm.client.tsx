@@ -18,12 +18,6 @@ const translations = {
   ua: uaTranslations,
 } as const
 
-const API_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY!
-
-if (!process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY) {
-  console.error('NEXT_PUBLIC_WEB3FORMS_API_KEY is not set')
-}
-
 export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
   const t = translations[locale]
   const [showNotification, setShowNotification] = useState(false)
@@ -31,16 +25,10 @@ export const ContactFormClient = ({ locale }: ContactFormClientProps) => {
 
   const onSubmit = async (data: Record<string, string>, reset: () => void) => {
     try {
-      const formData = new FormData()
-      Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value)
-      })
-
-      formData.append('access_key', API_KEY)
-
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       })
 
       if (response.ok) {

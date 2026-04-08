@@ -78,6 +78,17 @@ export type SettingsData = {
   additionalItems?: { text: string }[]
 }
 
+export type ReviewItem = {
+  id: string
+  reviewerName: string
+  rating: number
+  reviewDate: string
+  reviewContent: string
+  service?: string | null
+  source?: 'booksy' | 'google' | 'manual'
+  isVerified?: boolean
+}
+
 export type SEOData = {
   title: string
   description: string

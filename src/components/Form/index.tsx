@@ -36,7 +36,6 @@ export const Form = ({ locale, onSubmit }: FormProps) => {
     const next: FormErrors = {}
     if (!values.name.trim()) next.name = 'Name is required'
     if (!values.phone.trim()) next.phone = 'Phone is required'
-    if (!values.email.trim()) next.email = 'Email is required'
     setErrors(next)
     return Object.keys(next).length === 0
   }
@@ -71,7 +70,7 @@ export const Form = ({ locale, onSubmit }: FormProps) => {
       <input className={styles.input} id='phone' type='tel' value={values.phone} onChange={handleChange('phone')} />
 
       <label className={styles.label} htmlFor='email'>
-        <span className={styles.required}>{t.email}</span>
+        {t.email}
         <p className={styles.error}>{errors.email}</p>
       </label>
       <input className={styles.input} id='email' type='email' value={values.email} onChange={handleChange('email')} />

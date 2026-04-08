@@ -1,0 +1,30 @@
+.slider {
+  :global(.swiper:not(.swiper-initialized)) {
+    overflow: hidden;
+
+    :global(.swiper-slide) {
+      margin-right: 12px;
+      width: calc((100% - 1.2px) / 1.1);
+
+      @media (min-width: 320px) {
+        width: calc((100% - 4.8px) / 1.4);
+      }
+
+      @media (min-width: 420px) {
+        width: calc((100% - 9.6px) / 1.8);
+      }
+
+      @media (min-width: 568px) {
+        width: calc((100% - 16.8px) / 2.4);
+      }
+
+      @media (min-width: 768px) {
+        width: calc((100% - 24px) / 3);
+      }
+
+      @media (min-width: 992px) {
+        width: calc((100% - 30px) / 3.5);
+      }
+    }
+  }
+}

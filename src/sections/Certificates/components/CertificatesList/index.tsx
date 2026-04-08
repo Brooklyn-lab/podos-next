@@ -1,5 +1,6 @@
 import { CertificateItem } from '../CertificateItem'
 import { Slider } from '@/components/Slider'
+import styles from './CertificatesList.module.scss'
 
 export type Certificate = {
   image: {
@@ -19,6 +20,7 @@ type CertificatesListProps = {
 export const CertificatesList = ({ certificates }: CertificatesListProps) => {
   return (
     <Slider
+      className={styles.slider}
       spaceBetween={16}
       slidesPerView={4.2}
       breakpoints={{

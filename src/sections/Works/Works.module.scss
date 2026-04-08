@@ -4,7 +4,7 @@
   padding: 50px 0;
 
   @include tablet-max {
-    padding: 20px 0;
+    padding: 32px 0;
   }
 }
 
@@ -98,22 +98,34 @@
 
 .skeletonGrid {
   display: flex;
-  gap: 12px;
   overflow: hidden;
 }
 
 .skeletonCard {
   @extend %bone;
   flex-shrink: 0;
-  width: calc(25% - 9px);
+  margin-right: 12px;
   aspect-ratio: 10 / 9;
   border-radius: 8px;
+  width: calc((100% - 1.2px) / 1.1);
 
-  @include tablet-max {
-    width: 280px;
+  @media (min-width: 320px) {
+    width: calc((100% - 4.8px) / 1.4);
   }
 
-  @include mobile {
-    width: 240px;
+  @media (min-width: 420px) {
+    width: calc((100% - 9.6px) / 1.8);
+  }
+
+  @media (min-width: 568px) {
+    width: calc((100% - 16.8px) / 2.4);
+  }
+
+  @media (min-width: 768px) {
+    width: calc((100% - 24px) / 3);
+  }
+
+  @media (min-width: 992px) {
+    width: calc((100% - 30px) / 3.5);
   }
 }
