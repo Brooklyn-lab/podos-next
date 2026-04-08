@@ -7,7 +7,7 @@ const WEB3FORMS_API_KEY = process.env.WEB3FORMS_API_KEY
 type ContactForm = {
   name: string
   phone: string
-  email: string
+  email?: string
   message?: string
 }
 
@@ -17,8 +17,11 @@ function formatTelegramMessage({ name, phone, email, message }: ContactForm): st
     ``,
     `<b>Imię:</b> ${escapeHtml(name)}`,
     `<b>Telefon:</b> ${escapeHtml(phone)}`,
-    `<b>Email:</b> ${escapeHtml(email)}`,
   ]
+
+  if (email?.trim()) {
+    lines.push(`<b>Email:</b> ${escapeHtml(email)}`)
+  }
 
   if (message?.trim()) {
     lines.push(`<b>Wiadomość:</b> ${escapeHtml(message)}`)
@@ -55,7 +58,7 @@ async function sendWeb3Forms(form: ContactForm): Promise<boolean> {
   formData.append('access_key', WEB3FORMS_API_KEY)
   formData.append('name', form.name)
   formData.append('phone', form.phone)
-  formData.append('email', form.email)
+  if (form.email) formData.append('email', form.email)
   if (form.message) formData.append('message', form.message)
 
   const res = await fetch('https://api.web3forms.com/submit', {
@@ -71,7 +74,7 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ContactForm
 
-    if (!body.name?.trim() || !body.phone?.trim() || !body.email?.trim()) {
+    if (!body.name?.trim() || !body.phone?.trim()) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
